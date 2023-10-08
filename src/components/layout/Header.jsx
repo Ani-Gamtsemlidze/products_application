@@ -7,7 +7,7 @@ function Header() {
   const Logo = () => {
     return (
       <div>
-        <Link to="/home">
+        <Link to="/">
           <img className="w-16 h-16, object-contain" src={logo} />{" "}
         </Link>
       </div>

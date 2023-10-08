@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FetchProducts from "./FetchProducts";
 
 function HomeDecorPage() {
   const [data, setData] = useState([]);
@@ -6,9 +7,10 @@ function HomeDecorPage() {
     async function fetchSmartphones() {
       try {
         const response = await fetch(
-          "https://dummyjson.com/products/category/homedecor"
+          "https://dummyjson.com/products/category/home-decoration"
         );
         const data = await response.json();
+        setData(data.products);
         console.log(data.products);
         // console.log(data.products);
       } catch (error) {
@@ -17,7 +19,7 @@ function HomeDecorPage() {
     }
     fetchSmartphones();
   }, []);
-  return <div>{ok}</div>;
+  return <FetchProducts data={data} />;
 }
 
 export default HomeDecorPage;

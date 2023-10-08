@@ -14,7 +14,7 @@ function App() {
         <Header />
         <PageNav />
         <Routes>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/smartphones" element={<Smartphones />} />
           <Route path="/decoration" element={<HomeDecorPage />} />
         </Routes>

@@ -7,7 +7,7 @@ function PageNav() {
     <div>
       <ul className="flex justify-around bg-slate-950 text-white py-2.5 pl-9">
         <li>
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <NavLink to="/smartphones">Smartphones</NavLink>
