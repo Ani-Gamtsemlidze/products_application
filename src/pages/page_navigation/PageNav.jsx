@@ -12,7 +12,9 @@ function PageNav() {
         <li>
           <NavLink to="/smartphones">Smartphones</NavLink>
         </li>
-        <li>Home Decoration</li>
+        <li>
+          <NavLink to="/decoration">Home Decoration</NavLink>
+        </li>
         <li>Dresses</li>
       </ul>
     </div>
