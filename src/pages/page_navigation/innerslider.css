@@ -1,0 +1,28 @@
+.App {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.carousel-container {
+  max-width: 300px;
+}
+
+.carousel {
+  width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.carousel.carousel-slider {
+  width: 280px;
+}
+
+.carousel .thumbs-wrapper {
+  margin: 13px;
+}

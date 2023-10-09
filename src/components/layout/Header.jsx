@@ -8,7 +8,7 @@ function Header() {
     return (
       <div>
         <Link to="/">
-          <img className="w-16 h-16, object-contain" src={logo} />{" "}
+          <img className="w-16 h-16 object-contain" src={logo} />{" "}
         </Link>
       </div>
     );

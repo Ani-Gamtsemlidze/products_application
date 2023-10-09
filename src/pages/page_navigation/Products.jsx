@@ -9,7 +9,7 @@ function Products() {
   console.log("id", id);
 
   useEffect(() => {
-    async function fetchProduct() {
+    async function fetchProducts() {
       try {
         const response = await fetch(
           `https://dummyjson.com/products/category/${id}`
@@ -23,15 +23,11 @@ function Products() {
         setLoading(true);
       }
     }
-    fetchProduct();
+    fetchProducts();
   }, [id]);
   return (
     <div>
-      {/* {dataFetch.length > 0 ? ( */}
       <FetchProducts dataFetch={dataFetch} loading={loading} />
-      {/* ) : (
-        <p>"no data"</p>
-      )} */}
     </div>
   );
 }

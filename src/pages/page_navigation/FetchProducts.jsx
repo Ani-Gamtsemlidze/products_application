@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import loadingGif from "../../assets/loading.gif";
 
 function FetchProducts({ dataFetch, loading }) {
@@ -10,11 +11,13 @@ function FetchProducts({ dataFetch, loading }) {
             <div key={index} className="m-2">
               <div className="bg-amber-400 w-72 h-full rounded">
                 <div className="w-72 h-64">
-                  <img
-                    className="w-full h-full object-cover rounded"
-                    src={item.thumbnail}
-                    alt={item.title}
-                  />
+                  <Link to={`/innerProduct/${item.id}`}>
+                    <img
+                      className="w-full h-full object-cover rounded"
+                      src={item.thumbnail}
+                      alt={item.title}
+                    />
+                  </Link>
                 </div>
                 <div className="p-2">
                   <div>
