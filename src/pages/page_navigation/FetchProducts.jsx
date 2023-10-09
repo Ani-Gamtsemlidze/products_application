@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import loadingGif from "../../assets/loading.gif";
+import Loading from "./Loading";
 
 function FetchProducts({ dataFetch, loading }) {
   return (
     <>
       {loading ? (
-        <div className="flex flex-wrap px-16 pt-2.5 py-3 bg-gray-100 ">
+        <div className="flex flex-wrap px-16 pt-2.5 py-3 bg-gray-100 h-full">
           {dataFetch.map((item, index) => (
             <div key={index} className="m-2">
               <div className="bg-amber-400 w-72 h-full rounded">
@@ -21,7 +21,7 @@ function FetchProducts({ dataFetch, loading }) {
                 </div>
                 <div className="p-2">
                   <div>
-                    <p className="text-cyan-950">
+                    <p className="text-slate-950">
                       {item.title}{" "}
                       <span className="text-sm">({item.brand})</span>{" "}
                     </p>
@@ -33,7 +33,7 @@ function FetchProducts({ dataFetch, loading }) {
                     </p>
                   </div>
                   <div className="flex items-center mt-2 border-t-2">
-                    <span className="mt-1.5">{item.price} $</span>
+                    <span className="mt-1.5 text-xl">{item.price} $</span>
                   </div>
                 </div>
               </div>
@@ -41,8 +41,8 @@ function FetchProducts({ dataFetch, loading }) {
           ))}
         </div>
       ) : (
-        <div className="flex justify-center">
-          <img className="w-40 mt-6" src={loadingGif} alt="Loading" />
+        <div className="h-96 pt-20">
+          <Loading />
         </div>
       )}
     </>

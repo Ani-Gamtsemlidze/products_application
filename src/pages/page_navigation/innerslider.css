@@ -26,3 +26,11 @@
 .carousel .thumbs-wrapper {
   margin: 13px;
 }
+.carousel img {
+  height: 250px;
+  object-fit: cover;
+}
+.carousel .thumb img {
+  height: 50px;
+  /* object-fit: cover; */
+}
