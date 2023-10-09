@@ -14,7 +14,7 @@ function Header() {
     );
   };
   return (
-    <div className="flex justify-between items-center py-5 px-10  bg-amber-400">
+    <div className="flex justify-between items-center py-5 px-12 bg-amber-400">
       <Logo />
       <Search />
     </div>

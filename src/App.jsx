@@ -1,22 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Slider from "./components/homeSlider/Slider";
 import Header from "./components/layout/Header";
 import HomePage from "./pages/page_navigation/HomePage";
-import PageNav from "./pages/page_navigation/PageNav";
-import Smartphones from "./pages/page_navigation/SmartphonesPage";
+import Products from "./pages/page_navigation/Products";
 import "./index.css";
-import HomeDecorPage from "./pages/page_navigation/HomeDecorPage";
+import NavigationPage from "./pages/page_navigation/NavigationPage";
+import AllProducts from "./pages/page_navigation/AllProducts";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
-        <PageNav />
+        <NavigationPage />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/smartphones" element={<Smartphones />} />
-          <Route path="/decoration" element={<HomeDecorPage />} />
+          <Route path="/products/:id" element={<Products />} />
+          <Route path="/allproducts" element={<AllProducts />} />
         </Routes>
       </BrowserRouter>
     </>
