@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import InnerSlider from "./InnerSlider";
 
 import Loading from "./Loading";
-import Rating from "./rating";
+import Rating from "./Rating";
 
 function ProductDetails() {
   const [data, setData] = useState([]);
