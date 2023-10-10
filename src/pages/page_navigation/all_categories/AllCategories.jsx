@@ -10,40 +10,42 @@ import { Link } from "react-router-dom";
 function AllCategories() {
   return (
     <>
-      <div className="ml-12 flex justify-start">
-        <p className="text-3xl">All Categories</p>
-      </div>
-      <div className="flex flex-wrap items-center ml-8  p-5">
-        <Link to="/products/smartphones">
+      <div className=" p-10 ">
+        <div className=" flex ml-18">
+          <p className="text-4xl">All Categories</p>
+        </div>
+        <div className="flex flex-wrap mt-10 justify-center ">
           <div>
-            <img className="" src={smartphone} />
-            <p>Smartphones</p>
+            <Link to="/products/smartphones">
+              <img className="" src={smartphone} />
+              <p>Smartphones</p>
+            </Link>
           </div>
-        </Link>
-        <Link to="/products/laptops">
           <div>
-            <img className="" src={laptop} />
-            <p>Laptops</p>
+            <Link to="/products/laptops">
+              <img className="" src={laptop} />
+              <p>Laptops</p>
+            </Link>
           </div>
-        </Link>
-        <Link to="/products/furniture">
           <div>
-            <img className="" src={furniture} />
-            <p>Furnitures</p>
+            <Link to="/products/furniture">
+              <img className="" src={furniture} />
+              <p>Furnitures</p>
+            </Link>
           </div>
-        </Link>
-        <Link to="/products/fragrances">
           <div>
-            <img className="" src={fragrance} />
-            <p>Fragrances</p>
+            <Link to="/products/fragrances">
+              <img className="" src={fragrance} />
+              <p>Fragrances</p>
+            </Link>
           </div>
-        </Link>
-        <Link to="/products/home-decoration">
           <div>
-            <img className="" src={decor} />
-            <p>Home Decoration</p>
+            <Link to="/products/home-decoration">
+              <img className="" src={decor} />
+              <p>Home Decoration</p>
+            </Link>
           </div>
-        </Link>
+        </div>
       </div>
     </>
   );

@@ -21,12 +21,12 @@ const items = [
     onDragStart={handleDragStart}
     role="presentation"
   />,
-  <img
-    className="image-box"
-    src={img3}
-    onDragStart={handleDragStart}
-    role="presentation"
-  />,
+  // <img
+  //   className="image-box"
+  //   src={img3}
+  //   onDragStart={handleDragStart}
+  //   role="presentation"
+  // />,
 ];
 
 const Gallery = () => {

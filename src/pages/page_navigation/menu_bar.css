@@ -1,0 +1,13 @@
+.menu {
+  width: 35px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #020617;
+  margin: 7px;
+  bottom: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.act {
+  width: 55px;
+}

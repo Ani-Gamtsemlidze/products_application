@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
 
+import highRating from "../../assets/fullstar.png";
+import lessRating from "../../assets/notfullstar.png";
+
 function FetchProducts({ dataFetch, loading }) {
   return (
     <>
       {loading ? (
-        <div className="flex flex-wrap px-16 pt-2.5 py-3 bg-gray-100 h-full">
+        <div className="flex max-lg:justify-center flex-wrap px-16 pt-2.5 py-3 bg-gray-100 h-full">
           {dataFetch.map((item, index) => (
             <div key={index} className="m-2">
               <div className="bg-amber-400 w-72 h-full rounded">
@@ -19,16 +22,37 @@ function FetchProducts({ dataFetch, loading }) {
                     />
                   </Link>
                 </div>
+                <div className="relative">
+                  {item.rating < 5 ? (
+                    <div className=" absolute bottom-1 flex  bg-slate-950 rounded-xl text-white p-2 m-2 w-20">
+                      <p>{item.rating}</p>
+                      <img
+                        className="w-4 object-contain ml-1.5"
+                        src={lessRating}
+                      />
+                    </div>
+                  ) : (
+                    <div className="flex  bg-slate-950 rounded-xl text-white p-2 m-2 w-20">
+                      <p>{item.rating}</p>
+                      <img
+                        className="w-4 object-contain ml-1.5"
+                        src={highRating}
+                      />
+                    </div>
+                  )}
+                </div>{" "}
                 <div className="p-2">
                   <div>
-                    <p className="text-slate-950">
-                      {item.title}{" "}
-                      <span className="text-sm">({item.brand})</span>{" "}
-                    </p>
+                    <Link to={`/innerProduct/${item.id}`}>
+                      <p className="text-slate-950 text-xl">
+                        {item.title}{" "}
+                        {/* <span className="text-sm">({item.brand})</span>{" "} */}
+                      </p>
+                    </Link>
                   </div>
-                  <div className="min-w-min mt-2">
+                  <div className="min-w-min mt-2 justify-center flex">
                     <p className="text-sm">
-                      {item.description.split(" ").slice(0, 10).join(" ")}
+                      {item.description.split(" ").slice(0, 8).join(" ")}
                       <span>...</span>
                     </p>
                   </div>

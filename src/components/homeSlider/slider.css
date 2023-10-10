@@ -1,6 +1,21 @@
 .image-box {
   width: 100%;
-  height: 450px;
-  object-fit: contain;
+  height: 550px;
+  object-fit: cover;
   background-color: #eeeeee;
+}
+
+.alice-carousel__dots {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.alice-carousel__prev-btn {
+  display: none;
+}
+
+.alice-carousel__next-btn-wrapper {
+  display: none;
 }
