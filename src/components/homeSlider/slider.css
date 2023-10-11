@@ -19,3 +19,12 @@
 .alice-carousel__next-btn-wrapper {
   display: none;
 }
+
+@media only screen and (max-width: 992px) {
+  .alice-carousel__dots {
+    bottom: 12%;
+  }
+  .image-box {
+    height: 200px;
+  }
+}

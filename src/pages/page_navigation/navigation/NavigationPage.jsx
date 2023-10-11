@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./navigation.css";
 import { NavLink, Link } from "react-router-dom";
-import MenuBar from "../MenuBar";
-import Loading from "../Loading";
+import MenuBar from "../../../responsive_menu/MenuBar";
 
 function NavigationPage() {
   const [active, setActive] = useState(true);

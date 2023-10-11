@@ -5,12 +5,12 @@ import Loading from "./Loading";
 import highRating from "../../assets/fullstar.png";
 import lessRating from "../../assets/notfullstar.png";
 
-function FetchProducts({ dataFetch, loading }) {
+function FetchProducts({ data, loading }) {
   return (
     <>
       {loading ? (
         <div className="flex max-lg:justify-center flex-wrap px-16 pt-2.5 py-3 bg-gray-100 h-full">
-          {dataFetch.map((item, index) => (
+          {data.map((item, index) => (
             <div key={index} className="m-2">
               <div className="bg-amber-400 w-72 h-full rounded">
                 <div className="w-72 h-64">

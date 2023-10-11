@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FetchProducts from "./FetchProducts";
-function Products() {
-  const [dataFetch, setDataFetch] = useState([]);
+function Products({}) {
+  const [data, setDataFetch] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
@@ -27,7 +27,7 @@ function Products() {
   }, [id]);
   return (
     <div>
-      <FetchProducts dataFetch={dataFetch} loading={loading} />
+      <FetchProducts data={data} loading={loading} />
     </div>
   );
 }

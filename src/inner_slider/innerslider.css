@@ -34,3 +34,12 @@
   height: 50px;
   /* object-fit: cover; */
 }
+
+@media only screen and (max-width: 992px) {
+  .carousel-container {
+    max-width: 250px;
+  }
+  .carousel .thumbs-wrapper {
+    margin: 13px 0;
+  }
+}

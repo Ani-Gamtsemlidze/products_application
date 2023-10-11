@@ -1,11 +1,12 @@
-a img {
+a p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.slides {
   width: 230px;
   height: 200px;
   object-fit: cover;
   margin-right: 23px;
   border-radius: 3px;
-}
-a p {
-  font-size: 20px;
-  margin-top: 10px;
 }

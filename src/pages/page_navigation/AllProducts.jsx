@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import FetchProducts from "./FetchProducts";
 
 function AllProducts() {
-  const [dataFetch, setDataFetch] = useState([]);
+  const [data, setDataFetch] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function AllProducts() {
     }
     fetchAllProducts();
   }, []);
-  return <FetchProducts dataFetch={dataFetch} loading={loading} />;
+  return <FetchProducts data={data} loading={loading} />;
 }
 
 export default AllProducts;

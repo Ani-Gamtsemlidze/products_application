@@ -17,31 +17,31 @@ function AllCategories() {
         <div className="flex flex-wrap mt-10 justify-center ">
           <div>
             <Link to="/products/smartphones">
-              <img className="" src={smartphone} />
+              <img className="slides" src={smartphone} />
               <p>Smartphones</p>
             </Link>
           </div>
           <div>
             <Link to="/products/laptops">
-              <img className="" src={laptop} />
+              <img className="slides" src={laptop} />
               <p>Laptops</p>
             </Link>
           </div>
           <div>
             <Link to="/products/furniture">
-              <img className="" src={furniture} />
+              <img className="slides" src={furniture} />
               <p>Furnitures</p>
             </Link>
           </div>
           <div>
             <Link to="/products/fragrances">
-              <img className="" src={fragrance} />
+              <img className="slides" src={fragrance} />
               <p>Fragrances</p>
             </Link>
           </div>
           <div>
             <Link to="/products/home-decoration">
-              <img className="" src={decor} />
+              <img className="slides" src={decor} />
               <p>Home Decoration</p>
             </Link>
           </div>

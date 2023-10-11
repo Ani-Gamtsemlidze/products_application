@@ -7,6 +7,7 @@ import NavigationPage from "./pages/page_navigation/navigation/NavigationPage";
 import AllProducts from "./pages/page_navigation/AllProducts";
 import ProductDetails from "./pages/page_navigation/ProductDetails";
 import Footer from "./components/layout/Footer";
+import SearchedProducts from "./search/SearchedProducts";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/allproducts" element={<AllProducts />} />
           <Route path="/products/:id" element={<Products />} />
           <Route path="/innerProduct/:id" element={<ProductDetails />} />
+          <Route path="/search" element={<SearchedProducts />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,6 +1,6 @@
 .menu {
   width: 35px;
-  height: 5px;
+  height: 3px;
   border-radius: 5px;
   background-color: #020617;
   margin: 7px;
@@ -9,5 +9,5 @@
   right: 10px;
 }
 .act {
-  width: 55px;
+  width: 45px;
 }

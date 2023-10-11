@@ -1,8 +1,7 @@
 import React from "react";
-import Search from "./Search";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-import MenuBar from "../../pages/page_navigation/MenuBar";
+import Search from "../../search/Search";
 
 function Header() {
   const Logo = () => {
@@ -18,7 +17,7 @@ function Header() {
     );
   };
   return (
-    <div className="flex justify-between max-lg:justify-start items-center py-5 px-12 bg-amber-400">
+    <div className="flex justify-between max-lg:justify-start items-center py-5 px-12 bg-amber-400 max-lg:px-4">
       <Logo />
       <Search />
     </div>
