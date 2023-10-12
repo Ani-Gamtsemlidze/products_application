@@ -25,9 +25,8 @@ function Search() {
           spellCheck={false}
           onKeyPress={handleSearch}
           className="rounded-3xl py-2.5 px-10 w-56 outline-none 
-          border-none bg-gray-50 duration-75	
-          focus:w-72 focus:border-solid border-2
-          border-slate-700 max-lg:w-36 max-lg:focus:w-36 max-lg:focus:border-none "
+          border-none bg-gray-50 duration-150		
+          focus:w-72  max-lg:w-36 max-lg:focus:w-36 max-lg:focus:border-none "
           type="text"
           placeholder="Search"
         />

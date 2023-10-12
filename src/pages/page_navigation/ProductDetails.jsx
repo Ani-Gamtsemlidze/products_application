@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import InnerSlider from "../../inner_slider/InnerSlider";
 
 import Loading from "./Loading";
-import Rating from "./Rating";
+// import Rating from "./Rating";
 
 function ProductDetails() {
   const [data, setData] = useState([]);
@@ -58,7 +58,7 @@ function ProductDetails() {
                 <p className="text-2xl ">
                   {data.title} <span className="text-sm ">({data.brand})</span>
                 </p>
-                <Rating data={data} />
+                {/* <Rating data={data} /> */}
                 <div className="mt-2 pr-2 flex justify-end bg-slate-900	rounded-xl m-5">
                   <span className="text-amber-400 text-xl ">
                     {" "}

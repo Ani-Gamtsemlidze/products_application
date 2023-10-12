@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function AllCategories() {
   return (
     <>
-      <div className=" p-10 ">
+      <div className=" p-10 bg-gray-100 ">
         <div className=" flex ml-18">
           <p className="text-4xl">All Categories</p>
         </div>

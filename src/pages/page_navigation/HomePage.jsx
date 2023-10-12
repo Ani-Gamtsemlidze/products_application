@@ -6,8 +6,7 @@ import Swiper from "swiper";
 function HomePage() {
   return (
     <div>
-      {/* <Swiper /> */}
-      <Slider />
+      {/* <Slider /> */}
       <AllCategories />
     </div>
   );

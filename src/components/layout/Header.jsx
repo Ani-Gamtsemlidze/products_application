@@ -17,7 +17,7 @@ function Header() {
     );
   };
   return (
-    <div className="flex justify-between max-lg:justify-start items-center py-5 px-12 bg-amber-400 max-lg:px-4">
+    <div className="flex justify-between max-lg:justify-start items-center py-5 px-12 bg-zinc-200	 max-lg:px-4">
       <Logo />
       <Search />
     </div>

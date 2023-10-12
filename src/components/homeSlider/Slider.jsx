@@ -4,7 +4,6 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./slider.css";
 import img1 from "../../assets/image1.jpg";
 import img2 from "../../assets/image2.jpg";
-import img3 from "../../assets/image3.jpg";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -21,12 +20,6 @@ const items = [
     onDragStart={handleDragStart}
     role="presentation"
   />,
-  // <img
-  //   className="image-box"
-  //   src={img3}
-  //   onDragStart={handleDragStart}
-  //   role="presentation"
-  // />,
 ];
 
 const Gallery = () => {
