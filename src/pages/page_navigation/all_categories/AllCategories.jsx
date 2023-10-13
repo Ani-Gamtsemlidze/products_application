@@ -11,38 +11,38 @@ function AllCategories() {
   return (
     <>
       <div className=" p-10 bg-gray-100 ">
-        <div className=" flex ml-18">
+        <div className=" items-center flex ml-18">
           <p className="text-4xl">All Categories</p>
         </div>
-        <div className="flex flex-wrap mt-10 justify-center ">
+        <div className="flex  flex-wrap pt-10  ">
           <div>
             <Link to="/products/smartphones">
               <img className="slides" src={smartphone} />
-              <p>Smartphones</p>
+              <h2>Smartphones</h2>
             </Link>
           </div>
           <div>
             <Link to="/products/laptops">
               <img className="slides" src={laptop} />
-              <p>Laptops</p>
+              <h2>Laptops</h2>
             </Link>
           </div>
           <div>
             <Link to="/products/furniture">
               <img className="slides" src={furniture} />
-              <p>Furnitures</p>
+              <h2>Furnitures</h2>
             </Link>
           </div>
           <div>
             <Link to="/products/fragrances">
               <img className="slides" src={fragrance} />
-              <p>Fragrances</p>
+              <h2>Fragrances</h2>
             </Link>
           </div>
           <div>
             <Link to="/products/home-decoration">
               <img className="slides" src={decor} />
-              <p>Home Decoration</p>
+              <h2>Home Decoration</h2>
             </Link>
           </div>
         </div>

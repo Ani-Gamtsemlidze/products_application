@@ -1,15 +1,21 @@
 .App {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
 }
 .carousel-container {
-  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin-top: 50px;
+  border-right: 1px solid #e5e7eb;
+  padding-right: 15px;
 }
 
 .carousel {
   width: 300px;
-  max-height: 300px;
+  /* height: 300px; */
   object-fit: cover;
 }
 
@@ -20,19 +26,24 @@
 }
 
 .carousel.carousel-slider {
-  width: 280px;
+  /* width: 500px; */
 }
 
 .carousel .thumbs-wrapper {
   margin: 13px;
 }
 .carousel img {
-  height: 250px;
+  /* width: 600px; */
+  height: 400px;
   object-fit: cover;
 }
 .carousel .thumb img {
   height: 50px;
   /* object-fit: cover; */
+}
+
+.carousel .control-dots .dot {
+  background: #0f172a;
 }
 
 @media only screen and (max-width: 992px) {

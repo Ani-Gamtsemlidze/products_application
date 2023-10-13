@@ -1,10 +1,10 @@
-a p {
+a h2 {
   font-size: 20px;
   margin-top: 10px;
 }
 
 .slides {
-  width: 230px;
+  width: 220px;
   height: 200px;
   object-fit: cover;
   margin-right: 23px;

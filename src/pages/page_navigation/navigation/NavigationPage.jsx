@@ -7,32 +7,6 @@ function NavigationPage() {
   const [active, setActive] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
 
-  // const Navigation = () => {
-  //   <ul className={"flex bg-slate-950 text-white px-12 py-2.5 justify-between"}>
-  //     <li>
-  //       <NavLink to="/">Home</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to={`/products/smartphones`}>Smartphones</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to={`/products/laptops`}>Laptops</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to={`/products/furniture`}>Furniture</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to={`/products/fragrances`}>Fragrances</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to={`/products/home-decoration`}>Home Decoration</NavLink>
-  //     </li>
-  //     <li>
-  //       <NavLink to={`/allproducts`}>All products</NavLink>
-  //     </li>
-  //   </ul>;
-  // };
-
   useEffect(() => {
     // Function to update 'active' based on window width
     function handleResize() {

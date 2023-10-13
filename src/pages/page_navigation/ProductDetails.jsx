@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InnerSlider from "../../inner_slider/InnerSlider";
@@ -51,23 +52,33 @@ function ProductDetails() {
     <>
       {loading ? (
         <section className="flex justify-center pt-12 bg-gray-100 h-screen">
-          <div className="bg-slate-950 flex flex-row max-lg:flex-col max-lg:max-h-max max-lg:m-5 p-8 max-lg:p-2 rounded max-h-96		">
+          <div className=" flex flex-row max-lg:flex-col max-lg:max-h-max max-lg:m-5  max-lg:p-2 rounded max-h-96		">
             <InnerSlider imageData={imageData} />
-            <div className="ml-5 text-white ">
+            <div className="ml-6  ">
               <div>
                 <p className="text-2xl ">
                   {data.title} <span className="text-sm ">({data.brand})</span>
                 </p>
                 {/* <Rating data={data} /> */}
-                <div className="mt-2 pr-2 flex justify-end bg-slate-900	rounded-xl m-5">
-                  <span className="text-amber-400 text-xl ">
-                    {" "}
-                    {data.price} $
-                  </span>
+                <div className="mt-4 w-60	m-auto p-2 flex justify-between items-center bg-zinc-200		rounded-xl ">
+                  <div className="flex items-center ">
+                    <span className="pr-2">{data.rating}</span>
+                    <Rating
+                      name="half-rating-read"
+                      value={data.rating}
+                      precision={0.5}
+                      size="small"
+                      readOnly
+                    />
+                  </div>
+                  <span className=" text-md "> {data.price} $</span>
                 </div>
               </div>
               <div className="w-96 border-t mt-8 max-lg:w-80">
                 <p className="pt-4">{data.description}.</p>
+              </div>
+              <div className="bg-color-yellow p-2 rounded w-32 mt-8 flex justify-center">
+                <p>Add to cart</p>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ function Products({}) {
   }, [id]);
   return (
     <div>
-      <FetchProducts data={data} loading={loading} />
+      <FetchProducts id={id} data={data} loading={loading} />
     </div>
   );
 }
