@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import AllCategories from "./all_categories/AllCategories";
-import Slider from "../../components/homeSlider/Slider";
+import AllCategories from "../components/all_categories/AllCategories";
+import Slider from "../components/homeSlider/Slider";
 
 function HomePage() {
   return (

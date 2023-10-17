@@ -1,19 +1,20 @@
 import { Rating } from "@mui/material";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import Loading from "./Loading";
-import "./rating.css";
+import AddButton from "../../helper/AddButton";
+import Loading from "../../helper/Loading/Loading";
 
-function FetchProducts({ data, loading }) {
+function FetchProducts({ data, loading, setAddProduct, addProduct }) {
   const params = useParams();
+
   return (
-    <>
+    <div className="pt-36 max-lg:pt-20">
       {loading ? (
-        <div className="bg-gray-100">
-          <h2 className="text-center text-2xl pt-8 capitalize 	">{params.id}</h2>
+        <div className="bg-gray-100 ">
+          <h2 className="text-center text-2xl pt-8 capitalize ">{params.id}</h2>
           <div className="flex  max-lg:justify-center flex-wrap px-16 pt-4 py-3 bg-gray-100 h-full">
             {data.map((item, index) => (
-              <div key={index} className="m-2 ">
+              <div key={index} className="m-2">
                 <div className="bg-zinc-200	 w-72 h-full rounded ">
                   <div className="w-72 h-64">
                     <Link to={`/innerProduct/${item.id}`}>
@@ -53,9 +54,11 @@ function FetchProducts({ data, loading }) {
                       <span className=" text-xl text-slate-950">
                         {item.price} $
                       </span>
-                      <div className="bg-color-yellow p-2 rounded">
-                        <p>Add to cart</p>
-                      </div>
+                      <AddButton
+                        setAddProduct={setAddProduct}
+                        addProduct={addProduct}
+                        data={item}
+                      />
                     </div>
                   </div>
                 </div>
@@ -68,7 +71,7 @@ function FetchProducts({ data, loading }) {
           <Loading />
         </div>
       )}
-    </>
+    </div>
   );
 }
 

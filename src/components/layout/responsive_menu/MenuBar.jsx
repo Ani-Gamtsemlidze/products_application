@@ -1,4 +1,4 @@
-import "../responsive_menu/menu_bar.css";
+import "./menu_bar.css";
 function MenuBar() {
   return (
     <section className="relative">

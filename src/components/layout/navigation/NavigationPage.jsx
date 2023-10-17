@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./navigation.css";
 import { NavLink, Link } from "react-router-dom";
-import MenuBar from "../../../responsive_menu/MenuBar";
+import MenuBar from "../responsive_menu/MenuBar";
 
 function NavigationPage() {
   const [active, setActive] = useState(true);
@@ -11,7 +11,6 @@ function NavigationPage() {
     // Function to update 'active' based on window width
     function handleResize() {
       setActive(window.innerWidth >= 992);
-      console.log(window.innerWidth);
     }
 
     // Add event listener for window resize

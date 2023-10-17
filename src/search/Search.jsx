@@ -15,7 +15,7 @@ function Search() {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative max-lg:ml-2">
         <img
           className="h-4 object-contain absolute left-3.5 top-2 translate-y-2/4"
           src={search}

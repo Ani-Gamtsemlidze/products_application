@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import FetchProducts from "../pages/page_navigation/FetchProducts";
+import FetchProducts from "../components/Products/FetchProducts";
 
 function SearchedProducts() {
   const [data, setData] = useState([]);

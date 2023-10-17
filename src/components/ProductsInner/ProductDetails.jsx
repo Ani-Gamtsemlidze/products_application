@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InnerSlider from "../../inner_slider/InnerSlider";
 
-import Loading from "./Loading";
+import Loading from "../../helper/Loading/Loading";
 // import Rating from "./Rating";
 
 function ProductDetails() {
@@ -51,7 +51,10 @@ function ProductDetails() {
   return (
     <>
       {loading ? (
-        <section className="flex justify-center pt-12 bg-gray-100 h-screen">
+        <section
+          style={{ height: "800px" }}
+          className="flex justify-center pt-56 bg-gray-100 "
+        >
           <div className=" flex flex-row max-lg:flex-col max-lg:max-h-max max-lg:m-5  max-lg:p-2 rounded max-h-96		">
             <InnerSlider imageData={imageData} />
             <div className="ml-6  ">

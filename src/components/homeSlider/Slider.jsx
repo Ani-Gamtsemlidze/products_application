@@ -28,7 +28,7 @@ const Gallery = () => {
 
 function Slider() {
   return (
-    <div>
+    <div className="pt-20">
       <Gallery />
     </div>
   );
