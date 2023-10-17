@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AddCartTheme } from "../Contexts/AddCartContext";
 
 function AddButton({ data }) {
   const ctxAddCart = useContext(AddCartTheme);
 
-  const handleAdd = () => {
+  const handleAdd = (e) => {
+    e.stopPropagation();
     ctxAddCart.addCartHandler(data);
   };
 

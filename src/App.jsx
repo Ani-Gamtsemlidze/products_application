@@ -10,6 +10,7 @@ import Footer from "./components/layout/Footer";
 import SearchedProducts from "./search/SearchedProducts";
 import { useState } from "react";
 import AddCartContext from "./Contexts/AddCartContext";
+import CheckOut from "./components/layout/CheckOut";
 function App() {
   const [addProduct, setAddProduct] = useState(0);
 
@@ -35,6 +36,7 @@ function App() {
             />
             <Route path="/innerProduct/:id" element={<ProductDetails />} />
             <Route path="/search" element={<SearchedProducts />} />
+            <Route path="/checkout" element={<CheckOut />} />
           </Routes>
           <Footer />
         </BrowserRouter>

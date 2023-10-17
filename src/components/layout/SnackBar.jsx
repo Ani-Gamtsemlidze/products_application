@@ -1,40 +1,9 @@
-// import { Alert, Snackbar, Stack } from "@mui/material";
-// import React, { useContext, useState } from "react";
-
-// import { AddCartTheme } from "../../Contexts/AddCartContext";
-
-// function SnackBar() {
-//   const ctxAddCart = useContext(AddCartTheme);
-//   return (
-//     <Stack>
-//       <Snackbar
-//         open={ctxAddCart.open}
-//         autoHideDuration={6000}
-//         severity="success"
-//         message="product added"
-//       >
-//         {ctxAddCart.open ? (
-//           <Alert severity="success" sx={{ width: "100%" }}>
-//             This is a success message!
-//           </Alert>
-//         ) : (
-//           <Alert severity="error">This is an error message!</Alert>
-//         )}
-//       </Snackbar>
-//     </Stack>
-//   );
-// }
-
-// export default SnackBar;
-
 import * as React from "react";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useContext } from "react";
 import { AddCartTheme } from "../../Contexts/AddCartContext";
-import { useState } from "react";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
