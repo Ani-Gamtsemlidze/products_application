@@ -1,6 +1,7 @@
 import { Rating } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import { AddCartTheme } from "../../Contexts/AddCartContext";
 import AddButton from "../../helper/AddButton";
 import Loading from "../../helper/Loading/Loading";
 
@@ -51,7 +52,7 @@ function FetchProducts({ data, loading, setAddProduct, addProduct }) {
                       </p>
                     </div>
                     <div className="flex items-center mt-2 pt-4 border-t	justify-between border-slate-950">
-                      <span className=" text-xl text-slate-950">
+                      <span className=" text-xl text-green-800">
                         {item.price} $
                       </span>
                       <AddButton
@@ -67,7 +68,10 @@ function FetchProducts({ data, loading, setAddProduct, addProduct }) {
           </div>
         </div>
       ) : (
-        <div className="h-96 pt-20">
+        <div
+          className=" bg-gray-100 pt-20"
+          style={{ minHeight: "calc(100vh - 220px)" }}
+        >
           <Loading />
         </div>
       )}

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import FetchProducts from "../components/Products/FetchProducts";
+import Loading from "../helper/Loading/Loading";
 
 function SearchedProducts() {
   const [data, setData] = useState([]);
@@ -31,8 +32,8 @@ function SearchedProducts() {
     fetchSearchData();
   }, [id]);
 
-  return (
-    <div>
+  return loading ? (
+    <div className="bg-gray-100">
       {data.length > 0 ? (
         <FetchProducts data={data} loading={loading} />
       ) : (
@@ -42,6 +43,13 @@ function SearchedProducts() {
           </p>
         </div>
       )}
+    </div>
+  ) : (
+    <div
+      className=" bg-gray-100  pt-44"
+      style={{ minHeight: "calc(100vh - 80px)" }}
+    >
+      <Loading />
     </div>
   );
 }

@@ -1,14 +1,22 @@
 import { Rating } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InnerSlider from "../../inner_slider/InnerSlider";
 
 import Loading from "../../helper/Loading/Loading";
+import { AddCartTheme } from "../../Contexts/AddCartContext";
 // import Rating from "./Rating";
 
 function ProductDetails() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const ctxAddCart = useContext(AddCartTheme);
+
+  const handleAdd = (e) => {
+    e.stopPropagation();
+    ctxAddCart.addCartHandler(data);
+  };
 
   const { id } = useParams();
   console.log(id);
@@ -74,20 +82,26 @@ function ProductDetails() {
                       readOnly
                     />
                   </div>
-                  <span className=" text-md "> {data.price} $</span>
+                  <span className=" text-md text-green-800 ">
+                    {" "}
+                    {data.price} $
+                  </span>
                 </div>
               </div>
               <div className="w-96 border-t mt-8 max-lg:w-80">
-                <p className="pt-4">{data.description}.</p>
+                {data.description}
               </div>
               <div className="bg-color-yellow p-2 rounded w-32 mt-8 flex justify-center">
-                <p>Add to cart</p>
+                <button onClick={handleAdd}>Add to cart</button>
               </div>
             </div>
           </div>
         </section>
       ) : (
-        <div className="h-96 pt-20">
+        <div
+          className=" bg-gray-100 pt-20"
+          style={{ minHeight: "calc(100vh - 80px)" }}
+        >
           <Loading />
         </div>
       )}

@@ -9,6 +9,10 @@ function AddCartContext(props) {
   const [added, setAdded] = useState(false);
   const [sum, setSum] = useState(0);
 
+  const [isSearch, setIsSearch] = useState("");
+
+  const [productList, setProductList] = useState(false);
+
   const isSameToggler = (array, title) => {
     return array.some((elem) => elem.title === title);
   };
@@ -31,18 +35,27 @@ function AddCartContext(props) {
     setData(storedData);
   }, []);
 
+  const handleHiddenCart = () => {
+    setProductList(false);
+  };
+
   return (
     <AddCartTheme.Provider
       value={{
         addCartHandler: addCartHandler,
+        handleHiddenCart: handleHiddenCart,
         data: data,
         open: open,
         added: added,
         setData: setData,
         setOpen: setOpen,
         setAdded: setAdded,
+        productList: productList,
+        setProductList: setProductList,
         sum: sum,
         setSum: setSum,
+        isSearch: isSearch,
+        setIsSearch: setIsSearch,
       }}
     >
       {props.children}

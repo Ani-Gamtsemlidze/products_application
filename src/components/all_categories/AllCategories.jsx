@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import smartphone from "../../assets/smartphones.jpg";
 import laptop from "../../assets/laptop.png";
 import furniture from "../../assets/furniture.jpg";

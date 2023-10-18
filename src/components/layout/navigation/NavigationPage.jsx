@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./navigation.css";
 import { NavLink, Link } from "react-router-dom";
 import MenuBar from "../responsive_menu/MenuBar";
+import { AddCartTheme } from "../../../Contexts/AddCartContext";
 
 function NavigationPage() {
   const [active, setActive] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
 
+  const ctxAddCart = useContext(AddCartTheme);
+
   useEffect(() => {
-    // Function to update 'active' based on window width
     function handleResize() {
       setActive(window.innerWidth >= 992);
     }
@@ -19,7 +21,6 @@ function NavigationPage() {
     // Initial setup
     handleResize();
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };

@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import search from "../assets/search.png";
+import { AddCartTheme } from "../Contexts/AddCartContext";
 
 function Search() {
-  const [isSearch, setIsSearch] = useState("");
+  const ctxAddCart = useContext(AddCartTheme);
 
   const nav = useNavigate();
 
   const handleSearch = (e) => {
-    if (e.key === "Enter" && isSearch.trim() !== "") {
-      nav(`/search/?q=${isSearch}`);
+    if (e.key === "Enter" && ctxAddCart.isSearch.trim() !== "") {
+      nav(`/search/?q=${ctxAddCart.isSearch}`);
     }
   };
 
@@ -21,7 +22,7 @@ function Search() {
           src={search}
         />
         <input
-          onChange={(e) => setIsSearch(e.target.value)}
+          onChange={(e) => ctxAddCart.setIsSearch(e.target.value)}
           spellCheck={false}
           onKeyPress={handleSearch}
           className="rounded-3xl py-2.5 px-10 w-56 outline-none 
