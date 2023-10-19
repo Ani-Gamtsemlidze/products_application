@@ -4,18 +4,18 @@ import "./index.css";
 import Products from "./components/Products/ProductsFetching";
 
 import Footer from "./components/layout/Footer/Footer";
-import SearchedProducts from "./search/SearchedProducts";
 
 import { useState } from "react";
 import AddCartContext from "./Contexts/AddCartContext";
 
-import CheckOut from "./components/layout/checkOut/CheckOut";
 import Navigation from "./components/layout/navigation/Navigation";
 
 import AllProducts from "./components/Products/AllProducts";
 import Header from "./components/layout/Header/Header";
 import HomePage from "./home_page/HomePage";
 import InnerProduct from "./components/InnerProduct/InnerProduct";
+import CheckOut from "./components/layout/checkOut/CheckOut";
+import SearchedProducts from "./search/SearchedProducts";
 
 function App() {
   const [addProduct, setAddProduct] = useState(0);
