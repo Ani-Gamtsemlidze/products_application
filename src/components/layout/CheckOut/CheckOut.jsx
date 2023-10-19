@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AddCartTheme } from "../../Contexts/AddCartContext";
+import { AddCartTheme } from "../../../Contexts/AddCartContext";
 
 function CheckOut() {
   const ctxAddCart = useContext(AddCartTheme);

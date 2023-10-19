@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { AddCartTheme } from "../../../Contexts/AddCartContext";
 import cart from "../../../assets/shopping-bag.png";
 import "./cart.css";
-import AddedProducts from "../AddedProducts";
+import ProductsInCart from "../../Products/ProductsInCart";
 
 function Cart() {
   const ctxAddCart = useContext(AddCartTheme);
@@ -36,7 +36,7 @@ function Cart() {
           {ctxAddCart.data.length}
         </span>
       </div>
-      {ctxAddCart.productList && <AddedProducts />}
+      {ctxAddCart.productList && <ProductsInCart />}
     </div>
   );
 }

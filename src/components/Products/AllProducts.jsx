@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import FetchProducts from "./FetchProducts";
+import FetchProducts from "./Products";
 
 function AllProducts() {
   const [data, setDataFetch] = useState([]);

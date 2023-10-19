@@ -1,8 +1,8 @@
 import { Button, createTheme } from "@mui/material";
 import { useContext } from "react";
-import { AddCartTheme } from "../Contexts/AddCartContext";
+import { AddCartTheme } from "../../../Contexts/AddCartContext";
 
-function AddButton({ data }) {
+function AddToCart({ data }) {
   const ctxAddCart = useContext(AddCartTheme);
 
   const handleAdd = (e) => {
@@ -26,4 +26,4 @@ function AddButton({ data }) {
   );
 }
 
-export default AddButton;
+export default AddToCart;

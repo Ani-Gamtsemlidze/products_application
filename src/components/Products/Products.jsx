@@ -1,44 +1,81 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import FetchProducts from "./FetchProducts";
-function Products({ setAddProduct, addProduct }) {
-  const [data, setDataFetch] = useState([]);
-  const [loading, setLoading] = useState(false);
+import { Rating } from "@mui/material";
+import React, { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import Loading from "../../helper/Loading/Loading";
+import AddToCart from "../layout/cart/AddToCart";
 
-  const { id } = useParams();
-
-  const Category_URL = "https://dummyjson.com/products/category";
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch(`${Category_URL}/${id}`);
-
-        if (response.ok) {
-          const data = await response.json();
-          setDataFetch(data.products);
-          setLoading(true);
-        } else {
-          setLoading(true);
-        }
-      } catch (error) {
-        setLoading(true);
-      }
-    }
-    fetchProducts();
-  }, [id, Category_URL]);
+function FetchProducts({ data, loading, setAddProduct, addProduct }) {
+  const params = useParams();
 
   return (
-    <div>
-      <FetchProducts
-        setAddProduct={setAddProduct}
-        addProduct={addProduct}
-        id={id}
-        data={data}
-        loading={loading}
-      />
+    <div className="pt-36 max-lg:pt-34">
+      {loading ? (
+        <div className="bg-gray-100 ">
+          <h2 className="text-center text-2xl pt-8 capitalize ">{params.id}</h2>
+          <div className="flex  max-lg:justify-center flex-wrap px-16 pt-4 py-3 bg-gray-100 h-full">
+            {data.map((item, index) => (
+              <div key={index} className="m-2">
+                <div className="bg-zinc-200	 w-72 h-full rounded ">
+                  <div className="w-72 h-64">
+                    <Link to={`/innerProduct/${item.id}`}>
+                      <img
+                        className="w-full h-full object-cover rounded-t-md		"
+                        src={item.thumbnail}
+                        alt={item.title}
+                      />
+                    </Link>
+                  </div>
+                  <div className="relative">
+                    <div className=" absolute bottom-1 flex items-center bg-gray-100	 text-white p-2 rounded-r-lg	">
+                      <p className="text-sm text-slate-950">{item.rating}</p>
+                      <Rating
+                        name="half-rating-read"
+                        value={item.rating}
+                        precision={0.5}
+                        readOnly
+                      />
+                    </div>
+                  </div>
+                  <div className="p-2">
+                    <div>
+                      <Link to={`/innerProduct/${item.id}`}>
+                        <p className="text-slate-950 text-base">
+                          {item.title}{" "}
+                        </p>
+                      </Link>
+                    </div>
+                    <div className="w-64 h-16 mt-2  flex">
+                      <p className="text-sm">
+                        {item.description.split(" ").slice(0, 10).join(" ")}
+                        <span>...</span>
+                      </p>
+                    </div>
+                    <div className="flex items-center mt-2 pt-4 border-t	justify-between border-slate-950">
+                      <span className=" text-xl text-green-800">
+                        {item.price} $
+                      </span>
+                      <AddToCart
+                        setAddProduct={setAddProduct}
+                        addProduct={addProduct}
+                        data={item}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div
+          className=" bg-gray-100 pt-20"
+          style={{ minHeight: "calc(100vh - 220px)" }}
+        >
+          <Loading />
+        </div>
+      )}
     </div>
   );
 }
 
-export default Products;
+export default FetchProducts;

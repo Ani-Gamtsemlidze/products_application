@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AddCartTheme } from "../../Contexts/AddCartContext";
 
-function AddedProducts() {
+function ProductsInCart() {
   const ctxAddCart = useContext(AddCartTheme);
 
   return (
@@ -54,4 +54,4 @@ function AddedProducts() {
   );
 }
 
-export default AddedProducts;
+export default ProductsInCart;

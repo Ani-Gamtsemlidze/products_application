@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
-import Search from "../../search/Search";
+import Search from "../../../search/Search";
 
-import SnackBar from "../../helper/SnackBar/SnackBar";
-import { AddCartTheme } from "../../Contexts/AddCartContext";
-import Cart from "./cart/Cart";
+import SnackBar from "../../../helper/SnackBar/SnackBar";
+import { AddCartTheme } from "../../../Contexts/AddCartContext";
+import Cart from "../cart/Cart";
 
 function Header({ addProduct }) {
   const ctxAddCart = useContext(AddCartTheme);
