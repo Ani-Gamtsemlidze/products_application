@@ -1,15 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-
 import Products from "./components/Products/ProductsFetching";
-
 import Footer from "./components/layout/Footer/Footer";
-
 import { useState } from "react";
 import AddCartContext from "./Contexts/AddCartContext";
-
 import Navigation from "./components/layout/navigation/Navigation";
-
 import AllProducts from "./components/Products/AllProducts";
 import Header from "./components/layout/Header/Header";
 import HomePage from "./home_page/HomePage";
