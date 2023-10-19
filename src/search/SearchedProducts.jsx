@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import FetchProducts from "../components/Products/FetchProducts";
+import FetchProducts from "../components/products/FetchProducts";
 import Loading from "../helper/Loading/Loading";
 
 function SearchedProducts() {

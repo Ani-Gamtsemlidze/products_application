@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../inner_slider/innerslider.css";
+import "../product_slider/product_slider.css";
 import { Carousel } from "react-responsive-carousel";
 
 export default function InnerSlider({ imageData }) {

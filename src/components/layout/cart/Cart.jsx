@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { AddCartTheme } from "../../Contexts/AddCartContext";
-import cart from "../../assets/shopping-bag.png";
+import { AddCartTheme } from "../../../Contexts/AddCartContext";
+import cart from "../../../assets/shopping-bag.png";
 import "./cart.css";
-import AddedProducts from "./AddedProducts";
+import AddedProducts from "../AddedProducts";
 
 function Cart() {
   const ctxAddCart = useContext(AddCartTheme);

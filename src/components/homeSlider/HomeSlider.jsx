@@ -26,7 +26,7 @@ const Gallery = () => {
   return <AliceCarousel mouseTracking items={items} />;
 };
 
-function Slider() {
+function HomeSlider() {
   return (
     <div className="pt-20 max-lg:pt-36">
       <Gallery />
@@ -34,4 +34,4 @@ function Slider() {
   );
 }
 
-export default Slider;
+export default HomeSlider;

@@ -1,14 +1,13 @@
 import { Rating } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import InnerSlider from "../../inner_slider/InnerSlider";
 import { Button } from "@mui/material";
 
 import Loading from "../../helper/Loading/Loading";
+import ProductSlider from "../../product_slider/ProductSlider";
 import { AddCartTheme } from "../../Contexts/AddCartContext";
-// import Rating from "./Rating";
 
-function ProductDetails() {
+function InnerProduct() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -65,7 +64,7 @@ function ProductDetails() {
           className="flex justify-center pt-52 pb-11	 max-lg max-lg:pt-40  bg-gray-100 "
         >
           <div className=" flex flex-row max-lg:flex-col  max-lg:m-5  max-lg:p-2 rounded 	">
-            <InnerSlider imageData={imageData} />
+            <ProductSlider imageData={imageData} />
             <div className="ml-6  ">
               <div>
                 <p className="text-2xl ">
@@ -117,4 +116,4 @@ function ProductDetails() {
   );
 }
 
-export default ProductDetails;
+export default InnerProduct;

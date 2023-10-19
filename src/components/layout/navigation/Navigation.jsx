@@ -2,12 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import "./navigation.css";
 import { NavLink, Link } from "react-router-dom";
 import { AddCartTheme } from "../../../Contexts/AddCartContext";
-import Button from "@mui/material/Button";
 
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-
-function NavigationPage() {
+function Navigation() {
   const [active, setActive] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -65,4 +61,4 @@ function NavigationPage() {
   );
 }
 
-export default NavigationPage;
+export default Navigation;
