@@ -1,8 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AddCartTheme } from "../../Contexts/AddCartContext";
 
 function CheckOut() {
   const ctxAddCart = useContext(AddCartTheme);
+
+  const [active, setActive] = useState(false);
 
   const handleDelete = (id) => {
     const updatedData = ctxAddCart.data.filter((item) => item.id !== id);
@@ -50,16 +52,19 @@ function CheckOut() {
           </div>
         </div>
       ))}
-      {!ctxAddCart.data.length && (
+
+      {ctxAddCart.data.length ? (
+        <div className="border p-6 m-8">
+          <p className="text-xl text-end">
+            Sum{" "}
+            <span className="text-green-700 text-2xl">{ctxAddCart.sum}$</span>
+          </p>
+        </div>
+      ) : (
         <div className="pt-8">
           <h2 className="text-center text-xl text-red-600">Cart Is Empty.</h2>
         </div>
       )}
-      <div className="border p-6 m-8">
-        <p className="text-xl text-end">
-          Sum <span className="text-green-700 text-2xl">{ctxAddCart.sum}$</span>
-        </p>
-      </div>
     </div>
   );
 }

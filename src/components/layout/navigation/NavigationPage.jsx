@@ -35,8 +35,8 @@ function NavigationPage() {
 
   return (
     <div
-      className=" max-lg:overflow-x-scroll max-lg:scrollbar-thin  
-      max-lg:scrollbar-thumb-color-yellow max-lg:scrollbar-track-slate-950		"
+      className=" max-lg:overflow-x-scroll max-lg:scrollbar-thin
+      max-lg:scrollbar-thumb-color-yellow max-lg:scrollbar-track-zinc-200"
     >
       <ul className="nav_bar flex bg-slate-950 text-white px-12 py-2.5 justify-between">
         <li>
