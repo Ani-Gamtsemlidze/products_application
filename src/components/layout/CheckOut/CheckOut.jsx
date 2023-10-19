@@ -9,6 +9,7 @@ function CheckOut() {
   const handleDelete = (id) => {
     const updatedData = ctxAddCart.data.filter((item) => item.id !== id);
     ctxAddCart.setData(updatedData);
+    localStorage.setItem("add", JSON.stringify(updatedData));
   };
 
   useEffect(() => {
