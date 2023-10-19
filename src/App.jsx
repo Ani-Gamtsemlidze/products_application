@@ -3,8 +3,6 @@ import "./index.css";
 
 import Products from "./components/Products/ProductsFetching";
 
-import ProductDetails from "./components/InnerProduct/InnerProduct";
-
 import Footer from "./components/layout/Footer/Footer";
 import SearchedProducts from "./search/SearchedProducts";
 
@@ -17,6 +15,7 @@ import Navigation from "./components/layout/navigation/Navigation";
 import AllProducts from "./components/Products/AllProducts";
 import Header from "./components/layout/Header/Header";
 import HomePage from "./home_page/HomePage";
+import InnerProduct from "./components/InnerProduct/InnerProduct";
 
 function App() {
   const [addProduct, setAddProduct] = useState(0);
@@ -41,7 +40,7 @@ function App() {
                 />
               }
             />
-            <Route path="/innerProduct/:id" element={<ProductDetails />} />
+            <Route path="/innerProduct/:id" element={<InnerProduct />} />
             <Route path="/search" element={<SearchedProducts />} />
             <Route path="/checkout" element={<CheckOut />} />
           </Routes>
