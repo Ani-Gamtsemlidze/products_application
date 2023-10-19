@@ -7,19 +7,17 @@ function Products({ setAddProduct, addProduct }) {
 
   const { id } = useParams();
 
+  const Category_URL = "https://dummyjson.com/products/category";
+
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch(
-          `https://dummyjson.com/products/category/${id}`
-        );
+        const response = await fetch(`${Category_URL}/${id}`);
 
         if (response.ok) {
           const data = await response.json();
           setDataFetch(data.products);
-          setTimeout(() => {
-            setLoading(true);
-          }, 1000);
+          setLoading(true);
         } else {
           setLoading(true);
         }
@@ -28,7 +26,7 @@ function Products({ setAddProduct, addProduct }) {
       }
     }
     fetchProducts();
-  }, [id]);
+  }, [id, Category_URL]);
 
   return (
     <div>

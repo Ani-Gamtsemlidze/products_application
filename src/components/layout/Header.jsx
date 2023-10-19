@@ -23,7 +23,7 @@ function Header({ addProduct }) {
     );
   };
   return (
-    <div className="flex justify-between max-lg:justify-start items-center py-5 px-12 bg-zinc-200	 max-lg:px-4">
+    <div className="flex justify-between  items-center py-5 px-12 bg-zinc-200	 max-lg:px-4">
       <div>
         <Logo />
       </div>

@@ -10,36 +10,36 @@ import { Link } from "react-router-dom";
 function AllCategories() {
   return (
     <>
-      <div className=" p-10 bg-gray-100 ">
+      <div className=" p-10 max-lg:p-6 bg-gray-100 ">
         <div className=" items-center flex ml-18">
           <p className="text-4xl">All Categories</p>
         </div>
-        <div className="flex  flex-wrap pt-10  ">
-          <div>
+        <div className="flex max-lg:justify-between flex-wrap pt-10 max-lg:pt-4 ">
+          <div className=" image_box	">
             <Link to="/products/smartphones">
               <img className="slides" src={smartphone} />
               <h2>Smartphones</h2>
             </Link>
           </div>
-          <div>
+          <div className=" image_box	">
             <Link to="/products/laptops">
               <img className="slides" src={laptop} />
               <h2>Laptops</h2>
             </Link>
           </div>
-          <div>
+          <div className="image_box	">
             <Link to="/products/furniture">
               <img className="slides" src={furniture} />
               <h2>Furnitures</h2>
             </Link>
           </div>
-          <div>
+          <div className="image_box	">
             <Link to="/products/fragrances">
               <img className="slides" src={fragrance} />
               <h2>Fragrances</h2>
             </Link>
           </div>
-          <div>
+          <div className="image_box	">
             <Link to="/products/home-decoration">
               <img className="slides" src={decor} />
               <h2>Home Decoration</h2>

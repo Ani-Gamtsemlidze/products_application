@@ -20,26 +20,33 @@ function CheckOut() {
       style={{ minHeight: "calc(100vh - 88px)" }}
     >
       {ctxAddCart.data.map((item, index) => (
-        <div key={index} className="flex items-center m-8 border p-4 relative">
-          <div className="w-32 h-32 ">
+        <div
+          key={index}
+          className="flex max-lg:flex-col items-center m-8 border p-4 max-lg:p-2 relative max-lg:h-96	"
+        >
+          <div className="w-32 h-32 max-lg:w-full max-lg:h-36 ">
             <img className="w-full h-full object-cover" src={item.thumbnail} />
           </div>
-          <div className="ml-4">
+          <div className="ml-4 max-lg:ml-0 max-lg:mt-2">
             <div className="">
-              <h2 className="text-xl">{item.title}</h2>
+              <h2 className="text-xl max-lg:text-dm">{item.title}</h2>
             </div>
-            <div>
-              <span className="text-green-800">{item.price}$</span>
+            <div className="max-lg:mt-2 ">
+              <span className="text-green-800 max-lg:text-xl ">
+                {item.price}$
+              </span>
             </div>
-            <div className="w-auto">
+            <div className="w-auto max-lg:mt-2">
               {item.description.split(" ").slice(0, 10).join(" ")}
+              <span>...</span>
             </div>
           </div>
           <div
             onClick={() => handleDelete(item.id)}
-            className="flex items-center absolute right-4 cursor-pointer"
+            className="flex items-center absolute right-4 
+            cursor-pointer max-lg:bottom-3 max-lg:w-52"
           >
-            <span className="text-end text-red-600">Remove From Cart</span>
+            <span className="text-center text-red-600">Remove From Cart</span>
           </div>
         </div>
       ))}

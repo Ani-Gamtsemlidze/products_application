@@ -51,6 +51,12 @@
     max-width: 250px;
   }
   .carousel .thumbs-wrapper {
-    margin: 13px 0;
+    margin: 13px 25px;
+  }
+  .carousel img {
+    height: 200px;
+  }
+  .carousel-root .carousel-container {
+    margin-top: 0;
   }
 }

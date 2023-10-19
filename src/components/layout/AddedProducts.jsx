@@ -8,9 +8,10 @@ function AddedProducts() {
 
   return (
     <div
-      className=" flex  flex-col mt-2 items-center absolute z-1000 py-3 
-    right-4 rounded border border-slate-950 top-12 bg-gray-100  
-    h-96	 w-64 overflow-y-scroll scrollbar-thin  scrollbar-thumb-color-yellow scrollbar-track-slate-950  "
+      className=" flex z-50 flex-col mt-2 items-center absolute z-1000 py-3 
+    right-4 max-lg:right-1	rounded border border-slate-950 top-12 bg-gray-100  
+    h-96	 w-64 overflow-y-scroll scrollbar-thin  
+    scrollbar-thumb-color-yellow scrollbar-track-slate-950  "
     >
       <div className="border-b p-2 mx-2 ">
         <h2 className="text-center ">Your Cart</h2>

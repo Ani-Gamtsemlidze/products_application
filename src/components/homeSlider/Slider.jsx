@@ -28,7 +28,7 @@ const Gallery = () => {
 
 function Slider() {
   return (
-    <div className="pt-20">
+    <div className="pt-20 max-lg:pt-36">
       <Gallery />
     </div>
   );

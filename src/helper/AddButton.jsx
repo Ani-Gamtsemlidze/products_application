@@ -1,3 +1,4 @@
+import { Button, createTheme } from "@mui/material";
 import { useContext } from "react";
 import { AddCartTheme } from "../Contexts/AddCartContext";
 
@@ -10,8 +11,17 @@ function AddButton({ data }) {
   };
 
   return (
-    <div className="bg-color-yellow p-2 rounded">
-      <button onClick={handleAdd}>Add to cart</button>
+    <div className=" p-2 rounded">
+      <Button
+        // sx={{ bgcolor: "red" }}
+        // className="button"
+        onClick={handleAdd}
+        variant="contained"
+        color="success"
+        size="medium"
+      >
+        Add to cart
+      </Button>
     </div>
   );
 }

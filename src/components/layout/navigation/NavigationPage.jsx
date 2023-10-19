@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./navigation.css";
 import { NavLink, Link } from "react-router-dom";
-import MenuBar from "../responsive_menu/MenuBar";
 import { AddCartTheme } from "../../../Contexts/AddCartContext";
+import Button from "@mui/material/Button";
+
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 function NavigationPage() {
   const [active, setActive] = useState(true);
@@ -30,11 +33,12 @@ function NavigationPage() {
     setShowMenu(!showMenu);
   };
 
-  return active ? (
-    <div>
-      <ul
-        className={"flex bg-slate-950 text-white px-12 py-2.5 justify-between"}
-      >
+  return (
+    <div
+      className=" max-lg:overflow-x-scroll max-lg:scrollbar-thin  
+      max-lg:scrollbar-thumb-color-yellow max-lg:scrollbar-track-slate-950		"
+    >
+      <ul className="nav_bar flex bg-slate-950 text-white px-12 py-2.5 justify-between">
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
@@ -57,43 +61,6 @@ function NavigationPage() {
           <NavLink to={`/allproducts`}>All products</NavLink>
         </li>
       </ul>
-      {/* <Navigation /> */}
-    </div>
-  ) : (
-    <div className="relative">
-      <Link onClick={handleMenu}>
-        <MenuBar />
-      </Link>
-      {showMenu && (
-        <div className="absolute z-50 w-full">
-          <ul className=" h-screen bg-slate-950  text-white text-xl pl-8 pt-6">
-            <li onClick={handleMenu} className="">
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li onClick={handleMenu}>
-              <NavLink to={`/products/smartphones`}>Smartphones</NavLink>
-            </li>
-            <li onClick={handleMenu}>
-              <NavLink to={`/products/laptops`}>Laptops</NavLink>
-            </li>
-            <li onClick={handleMenu}>
-              <NavLink to={`/products/furniture`}>Furniture</NavLink>
-            </li>
-            <li onClick={handleMenu}>
-              <NavLink to={`/products/fragrances`}>Fragrances</NavLink>
-            </li>
-            <li onClick={handleMenu}>
-              <NavLink to={`/products/home-decoration`}>
-                Home Decoration
-              </NavLink>
-            </li>
-            <li onClick={handleMenu}>
-              <NavLink to={`/allproducts`}>All products</NavLink>
-            </li>
-          </ul>
-          {/* <Navigation /> */}
-        </div>
-      )}
     </div>
   );
 }

@@ -29,7 +29,7 @@ function Cart() {
   }, [ctxAddCart]);
 
   return (
-    <div className="relative" ref={cartRef}>
+    <div className="relative max-lg:ml-10" ref={cartRef}>
       <div className="cursor-pointer" onClick={handleAddedProducts}>
         <img className="w-10 h-10 items-center justify-center" src={cart} />
         <span className="cart_text absolute text-xs">

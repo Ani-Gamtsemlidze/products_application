@@ -7,6 +7,20 @@ a h2 {
   width: 220px;
   height: 200px;
   object-fit: cover;
-  margin-right: 23px;
   border-radius: 3px;
+  padding: 0 8px 0 0;
+}
+/* .image_box {
+  width: 220px;
+  height: 200px;
+} */
+
+@media only screen and (max-width: 992px) {
+  .slides {
+    height: 100px;
+  }
+  .image_box {
+    flex: 0 0 49%;
+    padding: 8px 0 0;
+  }
 }

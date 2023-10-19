@@ -2,6 +2,7 @@ import { Rating } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InnerSlider from "../../inner_slider/InnerSlider";
+import { Button } from "@mui/material";
 
 import Loading from "../../helper/Loading/Loading";
 import { AddCartTheme } from "../../Contexts/AddCartContext";
@@ -60,10 +61,10 @@ function ProductDetails() {
     <>
       {loading ? (
         <section
-          style={{ height: "800px" }}
-          className="flex justify-center pt-56 bg-gray-100 "
+          // style={{ height: "800px" }}
+          className="flex justify-center pt-52 pb-11	 max-lg max-lg:pt-40  bg-gray-100 "
         >
-          <div className=" flex flex-row max-lg:flex-col max-lg:max-h-max max-lg:m-5  max-lg:p-2 rounded max-h-96		">
+          <div className=" flex flex-row max-lg:flex-col  max-lg:m-5  max-lg:p-2 rounded 	">
             <InnerSlider imageData={imageData} />
             <div className="ml-6  ">
               <div>
@@ -88,18 +89,25 @@ function ProductDetails() {
                   </span>
                 </div>
               </div>
-              <div className="w-96 border-t mt-8 max-lg:w-80">
+              <div className="w-96 pt-4 border-t mt-8 max-lg:w-80 max-lg:pt-4">
                 {data.description}
               </div>
-              <div className="bg-color-yellow p-2 rounded w-32 mt-8 flex justify-center">
-                <button onClick={handleAdd}>Add to cart</button>
+              <div className=" flex justify-center mt-6 ">
+                <Button
+                  onClick={handleAdd}
+                  variant="contained"
+                  color="success"
+                  size="medium"
+                >
+                  Add to cart
+                </Button>
               </div>
             </div>
           </div>
         </section>
       ) : (
         <div
-          className=" bg-gray-100 pt-20"
+          className=" bg-gray-100 pt-52"
           style={{ minHeight: "calc(100vh - 80px)" }}
         >
           <Loading />

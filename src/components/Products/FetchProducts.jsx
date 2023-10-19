@@ -9,7 +9,7 @@ function FetchProducts({ data, loading, setAddProduct, addProduct }) {
   const params = useParams();
 
   return (
-    <div className="pt-36 max-lg:pt-20">
+    <div className="pt-36 max-lg:pt-34">
       {loading ? (
         <div className="bg-gray-100 ">
           <h2 className="text-center text-2xl pt-8 capitalize ">{params.id}</h2>

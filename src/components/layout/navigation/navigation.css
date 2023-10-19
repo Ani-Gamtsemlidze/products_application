@@ -1,3 +1,10 @@
 .active {
   color: #fbbf24;
 }
+
+@media only screen and (max-width: 992px) {
+  .nav_bar {
+    width: 800px;
+    padding: 20px;
+  }
+}

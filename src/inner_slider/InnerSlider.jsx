@@ -8,7 +8,6 @@ export default function InnerSlider({ imageData }) {
   const renderSlides = imageData.map((image) => (
     <div key={image.alt}>
       <img className="w-52" src={image.url} alt={image.alt} />
-      {/* <p className="legend">{image.label}</p> */}
     </div>
   ));
   function handleChange(index) {
