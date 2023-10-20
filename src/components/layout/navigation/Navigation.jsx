@@ -54,7 +54,7 @@ function Navigation() {
           <NavLink to={`/products/home-decoration`}>Home Decoration</NavLink>
         </li>
         <li>
-          <NavLink to={`/allproducts`}>All products</NavLink>
+          <NavLink to={`/all-products`}>All products</NavLink>
         </li>
       </ul>
     </div>

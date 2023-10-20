@@ -6,12 +6,14 @@ import AddToCart from "../layout/cart/AddToCart";
 
 function FetchProducts({ data, loading, setAddProduct, addProduct }) {
   const params = useParams();
-
+  console.log(params);
   return (
     <div className="pt-36 max-lg:pt-34">
       {loading ? (
         <div className="bg-gray-100 ">
-          <h2 className="text-center text-2xl pt-8 capitalize ">{params.id}</h2>
+          <h2 className="text-center text-2xl pt-8 capitalize ">
+            {params.id ? params.id : "All Products"}
+          </h2>
           <div className="flex  max-lg:justify-center flex-wrap px-16 pt-4 py-3 bg-gray-100 h-full">
             {data.map((item, index) => (
               <div key={index} className="m-2">

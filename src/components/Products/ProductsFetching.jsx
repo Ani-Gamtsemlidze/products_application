@@ -10,6 +10,7 @@ function Products({ setAddProduct, addProduct }) {
   const Category_URL = "https://dummyjson.com/products/category";
 
   useEffect(() => {
+    setLoading(false);
     async function fetchProducts() {
       try {
         const response = await fetch(`${Category_URL}/${id}`);
