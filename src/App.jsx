@@ -8,9 +8,9 @@ import Navigation from "./components/layout/navigation/Navigation";
 import AllProducts from "./components/Products/AllProducts";
 import Header from "./components/layout/Header/Header";
 import HomePage from "./home_page/HomePage";
-import CheckOut from "./components/layout/checkOut/CheckOut";
 import SearchedProducts from "./search/SearchedProducts";
-import InnerProduct from "./components/innerProduct/InnerProduct";
+import InnerProduct from "./components/InnerProduct/InnerProduct";
+import CheckOut from "./components/layout/CheckOut/CheckOut";
 
 function App() {
   const [addProduct, setAddProduct] = useState(0);
