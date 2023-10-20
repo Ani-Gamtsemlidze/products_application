@@ -1,6 +1,6 @@
 import React from "react";
 import AllCategories from "../components/categories/AllCategories";
-import HomeSlider from "../components/HomeSlider/HomeSlider";
+import HomeSlider from "../components/homeSlider/HomeSlider";
 
 function HomePage() {
   return (
