@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Products from "./components/Products/ProductsFetching";
 import Footer from "./components/layout/Footer/Footer";
-import InnerProduct from "./components/InnerProduct/InnerProduct";
 import { useState } from "react";
 import AddCartContext from "./Contexts/AddCartContext";
 import Navigation from "./components/layout/navigation/Navigation";
@@ -11,6 +10,7 @@ import Header from "./components/layout/Header/Header";
 import HomePage from "./home_page/HomePage";
 import CheckOut from "./components/layout/checkOut/CheckOut";
 import SearchedProducts from "./search/SearchedProducts";
+import InnerProduct from "./components/innerProduct/InnerProduct";
 
 function App() {
   const [addProduct, setAddProduct] = useState(0);
