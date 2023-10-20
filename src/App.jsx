@@ -9,7 +9,7 @@ import AllProducts from "./components/Products/AllProducts";
 import Header from "./components/layout/Header/Header";
 import HomePage from "./home_page/HomePage";
 import SearchedProducts from "./search/SearchedProducts";
-import InnerProduct from "./components/InnerProduct/InnerProduct";
+import InnerProduct from "./components/innerProduct/InnerProduct";
 import CheckOut from "./components/layout/CheckOut/CheckOut";
 
 function App() {
