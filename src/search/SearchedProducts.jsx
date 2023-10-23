@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import FetchProducts from "../components/Products/Products";
+import Products from "../components/Products/Products";
 import Loading from "../helper/Loading/Loading";
 
-function SearchedProducts() {
-  const [data, setData] = useState([]);
+function SearchedProducts({ data, setData }) {
+  // const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const [searchParams] = useSearchParams();
@@ -33,22 +33,22 @@ function SearchedProducts() {
   }, [id]);
 
   return loading ? (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100" style={{ minHeight: "calc(100vh - 50px)" }}>
       {data.length > 0 ? (
-        <FetchProducts data={data} loading={loading} />
+        <Products data={data} loading={loading} />
       ) : (
-        <div className="pt-8 flex justify-center">
-          <p className="text-center text-xl h-96 text-slate-950 inline-block">
+        <div
+          className="pt-36 flex justify-center"
+          style={{ minHeight: "calc(100vh - 88px)" }}
+        >
+          <p className="text-center text-xl text-red-600 inline-block">
             No items found
           </p>
         </div>
       )}
     </div>
   ) : (
-    <div
-      className=" bg-gray-100  pt-44"
-      style={{ minHeight: "calc(100vh - 80px)" }}
-    >
+    <div className=" bg-gray-100  pt-44">
       <Loading />
     </div>
   );

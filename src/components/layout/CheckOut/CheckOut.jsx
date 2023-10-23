@@ -20,7 +20,7 @@ function CheckOut() {
   return (
     <div
       className=" pt-40	pb-12	bg-gray-100"
-      style={{ minHeight: "calc(100vh - 88px)" }}
+      style={{ minHeight: "calc(100vh - 52px)" }}
     >
       {ctxAddCart.data.map((item, index) => (
         <div
@@ -62,8 +62,8 @@ function CheckOut() {
           </p>
         </div>
       ) : (
-        <div className="pt-8">
-          <h2 className="text-center text-xl text-red-600">Cart Is Empty.</h2>
+        <div className="">
+          <h2 className="text-center text-xl text-red-600">Cart Is Empty</h2>
         </div>
       )}
     </div>

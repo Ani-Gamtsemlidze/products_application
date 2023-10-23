@@ -25,16 +25,12 @@ function Navigation() {
     };
   }, []);
 
-  const handleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
   return (
     <div
-      className=" max-lg:overflow-x-scroll max-lg:scrollbar-thin
+      className=" nav_box max-lg:overflow-x-scroll max-lg:scrollbar-thin
       max-lg:scrollbar-thumb-color-yellow max-lg:scrollbar-track-zinc-200"
     >
-      <ul className="nav_bar flex bg-slate-950 text-white px-12 py-2.5 justify-between">
+      <ul className="nav_bar flex bg-slate-950 text-white justify-between">
         <li>
           <NavLink to="/">Home</NavLink>
         </li>

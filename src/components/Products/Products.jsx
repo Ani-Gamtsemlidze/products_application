@@ -1,22 +1,29 @@
 import { Rating } from "@mui/material";
 import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
+import { AddCartTheme } from "../../Contexts/AddCartContext";
 import Loading from "../../helper/Loading/Loading";
 import AddToCart from "../layout/cart/AddToCart";
 
-function FetchProducts({ data, loading, setAddProduct, addProduct }) {
+function Products({ data, loading, setAddProduct, addProduct }) {
   const params = useParams();
   console.log(params);
+
+  const ctxAddCart = useContext(AddCartTheme);
+
   return (
-    <div className="pt-36 max-lg:pt-34">
+    <div className="pt-28 max-lg:pt-32">
       {loading ? (
-        <div className="bg-gray-100 ">
+        <div
+          className="bg-gray-100"
+          style={{ minHeight: "calc(100vh - 215px)" }}
+        >
           <h2 className="text-center text-2xl pt-8 capitalize ">
             {params.id ? params.id : "All Products"}
           </h2>
           <div className="flex  max-lg:justify-center flex-wrap px-16 pt-4 py-3 bg-gray-100 h-full">
             {data.map((item, index) => (
-              <div key={index} className="m-2">
+              <div key={index} className="m-2 ">
                 <div className="bg-zinc-200	 w-72 h-full rounded ">
                   <div className="w-72 h-64">
                     <Link to={`/innerProduct/${item.id}`}>
@@ -71,7 +78,7 @@ function FetchProducts({ data, loading, setAddProduct, addProduct }) {
       ) : (
         <div
           className=" bg-gray-100 pt-20"
-          style={{ minHeight: "calc(100vh - 220px)" }}
+          style={{ minHeight: "calc(100vh - 164px)" }}
         >
           <Loading />
         </div>
@@ -80,4 +87,4 @@ function FetchProducts({ data, loading, setAddProduct, addProduct }) {
   );
 }
 
-export default FetchProducts;
+export default Products;

@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 
 import Loading from "../../helper/Loading/Loading";
-import ProductSlider from "../../product_slider/ProductSlider";
 import { AddCartTheme } from "../../Contexts/AddCartContext";
+import ProductSlider from "../product_slider/ProductSlider";
 
 function InnerProduct() {
   const [data, setData] = useState([]);
@@ -107,7 +107,7 @@ function InnerProduct() {
       ) : (
         <div
           className=" bg-gray-100 pt-52"
-          style={{ minHeight: "calc(100vh - 80px)" }}
+          style={{ minHeight: "calc(100vh - 50px)" }}
         >
           <Loading />
         </div>

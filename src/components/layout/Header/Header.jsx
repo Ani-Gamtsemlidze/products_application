@@ -7,7 +7,7 @@ import SnackBar from "../../../helper/SnackBar/SnackBar";
 import { AddCartTheme } from "../../../Contexts/AddCartContext";
 import Cart from "../cart/Cart";
 
-function Header({ addProduct }) {
+function Header({ addProduct, data }) {
   const ctxAddCart = useContext(AddCartTheme);
 
   const Logo = () => {
@@ -15,7 +15,7 @@ function Header({ addProduct }) {
       <div>
         <Link to="/">
           <img
-            className="w-16 h-16 max-lg:w-10 max-lg:h-10 object-contain"
+            className="w-12 h-16 max-lg:w-10 max-lg:h-10 object-contain"
             src={logo}
           />{" "}
         </Link>
@@ -23,7 +23,7 @@ function Header({ addProduct }) {
     );
   };
   return (
-    <div className="flex justify-between  items-center py-5 px-12 bg-zinc-200	 max-lg:px-4">
+    <div className="flex justify-between h-20 max-lg:h-16 items-center  px-12 bg-zinc-200	 max-lg:px-4">
       <div>
         <Logo />
       </div>
@@ -32,7 +32,7 @@ function Header({ addProduct }) {
       </div>
       <div className="flex items-center">
         <div>
-          <Search />
+          <Search data={data} />
         </div>
         <Cart addProduct={addProduct} />
       </div>

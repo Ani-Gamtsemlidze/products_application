@@ -14,13 +14,14 @@ import CheckOut from "./components/layout/CheckOut/CheckOut";
 
 function App() {
   const [addProduct, setAddProduct] = useState(0);
+  const [data, setData] = useState([]);
 
   return (
     <>
       <AddCartContext>
         <BrowserRouter>
           <div className="fixed w-full left-0 top-0 z-50">
-            <Header addProduct={addProduct} />
+            <Header addProduct={addProduct} data={data} />
             <Navigation />
           </div>
           <Routes>
@@ -30,13 +31,17 @@ function App() {
               path="/products/:id"
               element={
                 <Products
+                  data={data}
                   addProduct={addProduct}
                   setAddProduct={setAddProduct}
                 />
               }
             />
             <Route path="/innerProduct/:id" element={<InnerProduct />} />
-            <Route path="/search" element={<SearchedProducts />} />
+            <Route
+              path="/search"
+              element={<SearchedProducts data={data} setData={setData} />}
+            />
             <Route path="/checkout" element={<CheckOut />} />
           </Routes>
           <Footer />

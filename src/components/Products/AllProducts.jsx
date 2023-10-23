@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import FetchProducts from "./Products";
+import Products from "./Products";
 
 function AllProducts() {
   const [data, setDataFetch] = useState([]);
@@ -19,7 +19,7 @@ function AllProducts() {
     }
     fetchAllProducts();
   }, []);
-  return <FetchProducts data={data} loading={loading} />;
+  return <Products data={data} loading={loading} />;
 }
 
 export default AllProducts;

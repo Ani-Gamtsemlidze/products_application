@@ -2,9 +2,18 @@
   color: #fbbf24;
 }
 
+.nav_box {
+  /* width: 100%; */
+}
+.nav_bar {
+  padding: 5px 41px 7px;
+}
 @media only screen and (max-width: 992px) {
   .nav_bar {
-    width: 800px;
-    padding: 20px;
+    padding: 15px 20px;
+    width: 1000px;
+  }
+  .nav_bar li {
+    padding-left: 2%;
   }
 }

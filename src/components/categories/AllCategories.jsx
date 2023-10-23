@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function AllCategories() {
   return (
     <>
-      <div className=" p-10 max-lg:p-6 bg-gray-100 ">
+      <div className=" categories_box p-10 max-lg:p-6 bg-gray-100 ">
         <div className=" items-center flex ml-18">
           <p className="text-4xl">All Categories</p>
         </div>

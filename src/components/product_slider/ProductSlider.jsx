@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../product_slider/product_slider.css";
+import "./product_slider.css";
 import { Carousel } from "react-responsive-carousel";
 
-export default function InnerSlider({ imageData }) {
+export default function ProductSlider({ imageData }) {
   const [currentIndex, setCurrentIndex] = useState();
   const renderSlides = imageData.map((image) => (
     <div key={image.alt}>

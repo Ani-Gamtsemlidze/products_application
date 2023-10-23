@@ -4,6 +4,8 @@ export const AddCartTheme = createContext();
 
 function AddCartContext(props) {
   const initialData = JSON.parse(localStorage.getItem("add")) || [];
+  const [searchData, setSearchData] = useState([]);
+
   const [data, setData] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [added, setAdded] = useState(false);
@@ -56,6 +58,8 @@ function AddCartContext(props) {
         setSum: setSum,
         isSearch: isSearch,
         setIsSearch: setIsSearch,
+        searchData: searchData,
+        setSearchData: setSearchData,
       }}
     >
       {props.children}
