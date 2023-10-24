@@ -12,6 +12,7 @@ function SearchedProducts({ data, setData }) {
   const id = searchParams.get("q");
 
   useEffect(() => {
+    setLoading(false);
     async function fetchSearchData() {
       try {
         const response = await fetch(
@@ -33,13 +34,13 @@ function SearchedProducts({ data, setData }) {
   }, [id]);
 
   return loading ? (
-    <div className="bg-gray-100" style={{ minHeight: "calc(100vh - 50px)" }}>
+    <div className="bg-gray-100">
       {data.length > 0 ? (
         <Products data={data} loading={loading} />
       ) : (
         <div
           className="pt-36 flex justify-center"
-          style={{ minHeight: "calc(100vh - 88px)" }}
+          style={{ minHeight: "calc(100vh - 52px)" }}
         >
           <p className="text-center text-xl text-red-600 inline-block">
             No items found
@@ -48,7 +49,10 @@ function SearchedProducts({ data, setData }) {
       )}
     </div>
   ) : (
-    <div className=" bg-gray-100  pt-44">
+    <div
+      className=" bg-gray-100  pt-52"
+      style={{ minHeight: "calc(100vh - 52px)" }}
+    >
       <Loading />
     </div>
   );
