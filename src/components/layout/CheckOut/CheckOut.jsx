@@ -1,28 +1,16 @@
-import { useContext, useEffect, useState } from "react";
-import { AddCartTheme } from "../../../Contexts/AddCartContext";
+import { useProducts } from "../../../Contexts/AddCartContext";
 
 function CheckOut() {
-  const ctxAddCart = useContext(AddCartTheme);
+  const { data, itemsSum, calculateSum, handleDeleteCartItem } = useProducts();
 
-  const [active, setActive] = useState(false);
-
-  const handleDelete = (id) => {
-    const updatedData = ctxAddCart.data.filter((item) => item.id !== id);
-    ctxAddCart.setData(updatedData);
-    localStorage.setItem("add", JSON.stringify(updatedData));
-  };
-
-  useEffect(() => {
-    const sum = ctxAddCart.data.reduce((prev, item) => prev + item.price, 0);
-    ctxAddCart.setSum(sum);
-  }, [ctxAddCart.data]);
+  calculateSum();
 
   return (
     <div
       className=" pt-40	pb-12	bg-gray-100"
       style={{ minHeight: "calc(100vh - 52px)" }}
     >
-      {ctxAddCart.data.map((item, index) => (
+      {data.map((item, index) => (
         <div
           key={index}
           className="flex max-lg:flex-col items-center m-8 border p-4 max-lg:p-2 relative max-lg:h-96	"
@@ -45,7 +33,7 @@ function CheckOut() {
             </div>
           </div>
           <div
-            onClick={() => handleDelete(item.id)}
+            onClick={() => handleDeleteCartItem(item.id)}
             className="flex items-center absolute right-4 
             cursor-pointer max-lg:bottom-3 max-lg:w-52"
           >
@@ -54,11 +42,10 @@ function CheckOut() {
         </div>
       ))}
 
-      {ctxAddCart.data.length ? (
+      {data.length ? (
         <div className="border p-6 m-8">
           <p className="text-xl text-end">
-            Sum{" "}
-            <span className="text-green-700 text-2xl">{ctxAddCart.sum}$</span>
+            Sum <span className="text-green-700 text-2xl">{itemsSum}$</span>
           </p>
         </div>
       ) : (

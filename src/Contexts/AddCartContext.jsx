@@ -1,19 +1,28 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+} from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 
 export const AddCartTheme = createContext();
 
 function AddCartContext(props) {
   const initialData = JSON.parse(localStorage.getItem("add")) || [];
   const [searchData, setSearchData] = useState([]);
-
   const [data, setData] = useState(initialData);
+  const [productData, setProductData] = useState([]);
   const [open, setOpen] = useState(false);
   const [added, setAdded] = useState(false);
-  const [sum, setSum] = useState(0);
-
+  const [itemsSum, setItemsSum] = useState(0);
   const [isSearch, setIsSearch] = useState("");
-
   const [productList, setProductList] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [categoryData, setDataFetch] = useState([]);
+
+  const cartRef = useRef(null);
 
   const isSameToggler = (array, title) => {
     return array.some((elem) => elem.title === title);
@@ -41,30 +50,184 @@ function AddCartContext(props) {
     setProductList(false);
   };
 
+  const handleCloseSnackBar = (reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+    setAdded(false);
+  };
+
+  const handleSearchChange = (e) => {
+    const inputValue = e.target.value;
+    setIsSearch(inputValue);
+  };
+
+  const handleDeleteCartItem = (id) => {
+    const updatedData = data.filter((item) => item.id !== id);
+    setData(updatedData);
+    localStorage.setItem("add", JSON.stringify(updatedData));
+  };
+
+  const calculateSum = () => {
+    useEffect(() => {
+      const itemsSum = data.reduce((prev, item) => prev + item.price, 0);
+      setItemsSum(itemsSum);
+    }, [data]);
+  };
+
+  const handleAddedProducts = () => {
+    setProductList(!productList);
+  };
+
+  const handleAddInCart = (e) => {
+    e.stopPropagation();
+    addCartHandler(productData);
+  };
+
+  const handleCart = () => {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (cartRef.current && !cartRef.current.contains(event.target)) {
+          setProductList(false); // Close the cart when clicked outside
+        }
+      }
+
+      document.addEventListener("click", handleClickOutside);
+
+      return () => {
+        document.removeEventListener("click", handleClickOutside);
+      };
+    }, [useProducts]);
+  };
+
+  const fetchProducts = () => {
+    const { id } = useParams();
+    useEffect(() => {
+      setLoading(false);
+      async function products() {
+        try {
+          const response = await fetch(
+            `https://dummyjson.com/products/category/${id}`
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            setDataFetch(data.products);
+            setLoading(true);
+          } else {
+            setLoading(true);
+          }
+        } catch (error) {
+          setLoading(true);
+        }
+      }
+      products();
+    }, [id]);
+  };
+
+  const fetchAllProducts = () => {
+    useEffect(() => {
+      setLoading(false);
+      async function allProducts() {
+        try {
+          const response = await fetch(
+            "https://dummyjson.com/products?limit=15"
+          );
+          const data = await response.json();
+          setDataFetch(data.products);
+          setLoading(true);
+        } catch (error) {
+          setLoading(true);
+        }
+      }
+      allProducts();
+    }, [data]);
+  };
+
+  const fetchInnerProduct = () => {
+    const { id } = useParams();
+    useEffect(() => {
+      setLoading(false);
+      async function fetchProduct() {
+        try {
+          const response = await fetch(`https://dummyjson.com/products/${id}`);
+          const data = await response.json();
+          setProductData(data);
+          console.log(data);
+          setLoading(true);
+        } catch (error) {
+          console.log("error", error);
+          setLoading(true);
+        }
+      }
+      fetchProduct();
+    }, [id]);
+  };
+
+  const fetchSearchedData = () => {
+    const [searchParams] = useSearchParams();
+    const id = searchParams.get("q");
+    useEffect(() => {
+      setLoading(false);
+      async function searchData() {
+        try {
+          const response = await fetch(
+            `https://dummyjson.com/products/search?q=${id}`
+          );
+          const searchData = await response.json();
+          const products = searchData.products;
+          setDataFetch(products);
+          console.log(products);
+          setLoading(true);
+
+          console.log(searchData.products);
+        } catch (error) {
+          console.log("error", error);
+          setLoading(true);
+        }
+      }
+      searchData();
+    }, [id]);
+  };
   return (
     <AddCartTheme.Provider
       value={{
-        addCartHandler: addCartHandler,
-        handleHiddenCart: handleHiddenCart,
-        data: data,
-        open: open,
-        added: added,
-        setData: setData,
-        setOpen: setOpen,
-        setAdded: setAdded,
-        productList: productList,
-        setProductList: setProductList,
-        sum: sum,
-        setSum: setSum,
-        isSearch: isSearch,
-        setIsSearch: setIsSearch,
-        searchData: searchData,
-        setSearchData: setSearchData,
+        fetchProducts,
+        fetchAllProducts,
+        handleCart,
+        fetchInnerProduct,
+        fetchSearchedData,
+        categoryData,
+        handleAddInCart,
+        productData,
+        cartRef,
+        handleCloseSnackBar,
+        handleAddedProducts,
+        handleDeleteCartItem,
+        handleSearchChange,
+        calculateSum,
+        addCartHandler,
+        handleHiddenCart,
+        loading,
+        data,
+        open,
+        added,
+        productList,
+        itemsSum,
+        isSearch,
+        searchData,
       }}
     >
       {props.children}
     </AddCartTheme.Provider>
   );
 }
+function useProducts() {
+  const context = useContext(AddCartTheme);
+  if (context === undefined) throw new Error("error");
+  return context;
+}
 
-export default AddCartContext;
+export { AddCartContext, useProducts };

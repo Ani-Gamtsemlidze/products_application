@@ -4,12 +4,9 @@ import { Link } from "react-router-dom";
 import Search from "../../../search/Search";
 
 import SnackBar from "../../../helper/SnackBar/SnackBar";
-import { AddCartTheme } from "../../../Contexts/AddCartContext";
 import Cart from "../cart/Cart";
 
-function Header({ addProduct, data }) {
-  const ctxAddCart = useContext(AddCartTheme);
-
+function Header({ data }) {
   const Logo = () => {
     return (
       <div>
@@ -34,7 +31,7 @@ function Header({ addProduct, data }) {
         <div>
           <Search data={data} />
         </div>
-        <Cart addProduct={addProduct} />
+        <Cart />
       </div>
     </div>
   );

@@ -1,42 +1,17 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import Products from "../components/Products/Products";
+import { useProducts } from "../Contexts/AddCartContext";
 import Loading from "../helper/Loading/Loading";
 
-function SearchedProducts({ data, setData }) {
-  // const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+function SearchedProducts() {
+  const { categoryData, loading, fetchSearchedData } = useProducts();
 
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("q");
-
-  useEffect(() => {
-    setLoading(false);
-    async function fetchSearchData() {
-      try {
-        const response = await fetch(
-          `https://dummyjson.com/products/search?q=${id}`
-        );
-        const searchData = await response.json();
-        const products = searchData.products;
-        setData(products);
-        console.log(products);
-        setLoading(true);
-
-        console.log(searchData.products);
-      } catch (error) {
-        console.log("error", error);
-        setLoading(true);
-      }
-    }
-    fetchSearchData();
-  }, [id]);
+  fetchSearchedData();
 
   return loading ? (
     <div className="bg-gray-100">
-      {data.length > 0 ? (
-        <Products data={data} loading={loading} />
+      {categoryData.length > 0 ? (
+        <Products loading={loading} />
       ) : (
         <div
           className="pt-36 flex justify-center"

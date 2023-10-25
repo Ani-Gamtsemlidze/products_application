@@ -1,42 +1,22 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
-import { AddCartTheme } from "../../../Contexts/AddCartContext";
+import React from "react";
+import { useProducts } from "../../../Contexts/AddCartContext";
 import cart from "../../../assets/shopping-bag.png";
 import "./cart.css";
 import ProductsInCart from "../../Products/ProductsInCart";
 
 function Cart() {
-  const ctxAddCart = useContext(AddCartTheme);
-  const cartRef = useRef(null);
-  console.log(cartRef);
+  const { data, productList, handleAddedProducts, handleCart, cartRef } =
+    useProducts();
 
-  const handleAddedProducts = () => {
-    ctxAddCart.setProductList(!ctxAddCart.productList);
-  };
-
-  // tu cartRef.current-i ar sheicavs event targets carti imaleba
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (cartRef.current && !cartRef.current.contains(event.target)) {
-        ctxAddCart.setProductList(false); // Close the cart when clicked outside
-      }
-    }
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [ctxAddCart]);
+  handleCart();
 
   return (
     <div className="relative max-lg:ml-10" ref={cartRef}>
       <div className="cursor-pointer" onClick={handleAddedProducts}>
         <img className="w-10 h-10 items-center justify-center" src={cart} />
-        <span className="cart_text absolute text-xs">
-          {ctxAddCart.data.length}
-        </span>
+        <span className="cart_text absolute text-xs">{data.length}</span>
       </div>
-      {ctxAddCart.productList && <ProductsInCart />}
+      {productList && <ProductsInCart />}
     </div>
   );
 }

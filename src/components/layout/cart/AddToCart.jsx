@@ -1,20 +1,17 @@
-import { Button, createTheme } from "@mui/material";
-import { useContext } from "react";
-import { AddCartTheme } from "../../../Contexts/AddCartContext";
+import { Button } from "@mui/material";
+import { useProducts } from "../../../Contexts/AddCartContext";
 
 function AddToCart({ data }) {
-  const ctxAddCart = useContext(AddCartTheme);
+  const { addCartHandler } = useProducts();
 
   const handleAdd = (e) => {
     e.stopPropagation();
-    ctxAddCart.addCartHandler(data);
+    addCartHandler(data);
   };
 
   return (
     <div className=" p-2 rounded">
       <Button
-        // sx={{ bgcolor: "red" }}
-        // className="button"
         onClick={handleAdd}
         variant="contained"
         color="success"

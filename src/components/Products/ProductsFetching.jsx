@@ -1,44 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useProducts } from "../../Contexts/AddCartContext";
 import Products from "./Products";
 
-function ProductsFetching({ setAddProduct, addProduct }) {
-  const [data, setDataFetch] = useState([]);
-  const [loading, setLoading] = useState(false);
+function ProductsFetching() {
+  const { fetchProducts } = useProducts();
 
-  const { id } = useParams();
-
-  const Category_URL = "https://dummyjson.com/products/category";
-
-  useEffect(() => {
-    setLoading(false);
-    async function fetchProducts() {
-      try {
-        const response = await fetch(`${Category_URL}/${id}`);
-
-        if (response.ok) {
-          const data = await response.json();
-          setDataFetch(data.products);
-          setLoading(true);
-        } else {
-          setLoading(true);
-        }
-      } catch (error) {
-        setLoading(true);
-      }
-    }
-    fetchProducts();
-  }, [id, Category_URL]);
+  fetchProducts();
 
   return (
     <div>
-      <Products
-        setAddProduct={setAddProduct}
-        addProduct={addProduct}
-        id={id}
-        data={data}
-        loading={loading}
-      />
+      <Products />
     </div>
   );
 }

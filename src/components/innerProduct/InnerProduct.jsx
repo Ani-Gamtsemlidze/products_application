@@ -1,58 +1,34 @@
 import { Rating } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
 import { Button } from "@mui/material";
 
 import Loading from "../../helper/Loading/Loading";
-import { AddCartTheme } from "../../Contexts/AddCartContext";
+import { useProducts } from "../../Contexts/AddCartContext";
 import ProductSlider from "../product_slider/ProductSlider";
+import { useParams } from "react-router-dom";
 
 function InnerProduct() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { productData, fetchInnerProduct, loading, handleAddInCart } =
+    useProducts();
 
-  const ctxAddCart = useContext(AddCartTheme);
+  fetchInnerProduct();
 
-  const handleAdd = (e) => {
-    e.stopPropagation();
-    ctxAddCart.addCartHandler(data);
-  };
-
-  const { id } = useParams();
-  console.log(id);
-
-  useEffect(() => {
-    async function fetchProduct() {
-      try {
-        const response = await fetch(`https://dummyjson.com/products/${id}`);
-        const data = await response.json();
-        setData(data);
-        console.log(data);
-        setLoading(true);
-      } catch (error) {
-        console.log("error", error);
-        setLoading(true);
-      }
-    }
-    fetchProduct();
-  }, [id]);
-
-  const imageData = data.images
+  const imageData = productData.images
     ? [
         {
           label: "Image 1",
           alt: "image1",
-          url: `${data.images[0]}`,
+          url: `${productData.images[0]}`,
         },
         {
           label: "Image 2",
           alt: "image2",
-          url: `${data.images[1]}`,
+          url: `${productData.images[1]}`,
         },
         {
           label: "Image 3",
           alt: "image3",
-          url: `${data.images[2]}`,
+          url: `${productData.images[2]}`,
         },
       ]
     : [];
@@ -68,15 +44,16 @@ function InnerProduct() {
             <div className="ml-6  ">
               <div>
                 <p className="text-2xl ">
-                  {data.title} <span className="text-sm ">({data.brand})</span>
+                  {productData.title}{" "}
+                  <span className="text-sm ">({productData.brand})</span>
                 </p>
-                {/* <Rating data={data} /> */}
+                {/* <Rating productData={productData} /> */}
                 <div className="mt-4 w-60	m-auto p-2 flex justify-between items-center bg-zinc-200		rounded-xl ">
                   <div className="flex items-center ">
-                    <span className="pr-2">{data.rating}</span>
+                    <span className="pr-2">{productData.rating}</span>
                     <Rating
                       name="half-rating-read"
-                      value={data.rating}
+                      value={productData.rating}
                       precision={0.5}
                       size="small"
                       readOnly
@@ -84,16 +61,16 @@ function InnerProduct() {
                   </div>
                   <span className=" text-md text-green-800 ">
                     {" "}
-                    {data.price} $
+                    {productData.price} $
                   </span>
                 </div>
               </div>
               <div className="w-96 pt-4 border-t mt-8 max-lg:w-80 max-lg:pt-4">
-                {data.description}
+                {productData.description}
               </div>
               <div className=" flex justify-center mt-6 ">
                 <Button
-                  onClick={handleAdd}
+                  onClick={handleAddInCart}
                   variant="contained"
                   color="success"
                   size="medium"

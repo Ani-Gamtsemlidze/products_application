@@ -1,18 +1,17 @@
 import { Rating } from "@mui/material";
 import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { AddCartTheme } from "../../Contexts/AddCartContext";
+import { AddCartTheme, useProducts } from "../../Contexts/AddCartContext";
 import Loading from "../../helper/Loading/Loading";
 import AddToCart from "../layout/cart/AddToCart";
 
-function Products({ data, loading, setAddProduct, addProduct }) {
+function Products() {
   const params = useParams();
   console.log(params);
 
-  const ctxAddCart = useContext(AddCartTheme);
-
+  const { categoryData, loading } = useProducts();
   return (
-    <div className="pt-28 max-lg:pt-32">
+    <div className="pt-28 max-lg:pt-28">
       {loading ? (
         <div
           className="bg-gray-100"
@@ -22,7 +21,7 @@ function Products({ data, loading, setAddProduct, addProduct }) {
             {params.id ? params.id : "All Products"}
           </h2>
           <div className="flex  max-lg:justify-center flex-wrap px-16 pt-4 py-3 bg-gray-100 h-full">
-            {data.map((item, index) => (
+            {categoryData.map((item, index) => (
               <div key={index} className="m-2 ">
                 <div className="bg-zinc-200	 w-72 h-full rounded ">
                   <div className="w-72 h-64">
@@ -63,11 +62,7 @@ function Products({ data, loading, setAddProduct, addProduct }) {
                       <span className=" text-xl text-green-800">
                         {item.price} $
                       </span>
-                      <AddToCart
-                        setAddProduct={setAddProduct}
-                        addProduct={addProduct}
-                        data={item}
-                      />
+                      <AddToCart data={item} />
                     </div>
                   </div>
                 </div>
