@@ -7,7 +7,6 @@ import AddToCart from "../layout/cart/AddToCart";
 
 function Products() {
   const params = useParams();
-  console.log(params);
 
   const { categoryData, loading } = useProducts();
   return (

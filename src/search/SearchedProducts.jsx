@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Products from "../components/Products/Products";
 import { useProducts } from "../Contexts/AddCartContext";
 import Loading from "../helper/Loading/Loading";
@@ -6,7 +7,12 @@ import Loading from "../helper/Loading/Loading";
 function SearchedProducts() {
   const { categoryData, loading, fetchSearchedData } = useProducts();
 
-  fetchSearchedData();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("q");
+
+  useEffect(() => {
+    fetchSearchedData(id);
+  }, [id]);
 
   return loading ? (
     <div className="bg-gray-100">

@@ -5,7 +5,6 @@ import React, {
   useContext,
   useRef,
 } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
 
 export const AddCartTheme = createContext();
 
@@ -71,10 +70,8 @@ function AddCartContext(props) {
   };
 
   const calculateSum = () => {
-    useEffect(() => {
-      const itemsSum = data.reduce((prev, item) => prev + item.price, 0);
-      setItemsSum(itemsSum);
-    }, [data]);
+    const itemsSum = data.reduce((prev, item) => prev + item.price, 0);
+    setItemsSum(itemsSum);
   };
 
   const handleAddedProducts = () => {
@@ -102,100 +99,76 @@ function AddCartContext(props) {
     }, [useProducts]);
   };
 
-  const fetchProducts = () => {
-    const { id } = useParams();
-    useEffect(() => {
+  function fetchProducts(id) {
+    const products = async () => {
       setLoading(false);
-      async function products() {
-        try {
-          const response = await fetch(
-            `https://dummyjson.com/products/category/${id}`
-          );
+      try {
+        console.log(id);
+        const response = await fetch(
+          `https://dummyjson.com/products/category/${id}`
+        );
 
-          if (response.ok) {
-            const data = await response.json();
-            setDataFetch(data.products);
-            setLoading(true);
-          } else {
-            setLoading(true);
-          }
-        } catch (error) {
-          setLoading(true);
-        }
-      }
-      products();
-    }, [id]);
-  };
-
-  const fetchAllProducts = () => {
-    useEffect(() => {
-      setLoading(false);
-      async function allProducts() {
-        try {
-          const response = await fetch(
-            "https://dummyjson.com/products?limit=15"
-          );
+        if (response.ok) {
           const data = await response.json();
           setDataFetch(data.products);
           setLoading(true);
-        } catch (error) {
-          setLoading(true);
         }
+      } catch (error) {
+        setLoading(true);
       }
-      allProducts();
-    }, [data]);
+    };
+    products();
+  }
+
+  async function allProducts() {
+    setLoading(false);
+    try {
+      const response = await fetch("https://dummyjson.com/products?limit=15");
+      const data = await response.json();
+      setDataFetch(data.products);
+      setLoading(true);
+    } catch (error) {
+      setLoading(true);
+    }
+  }
+
+  const fetchInnerProduct = async (id) => {
+    setLoading(false);
+    try {
+      const response = await fetch(`https://dummyjson.com/products/${id}`);
+      const data = await response.json();
+      setProductData(data);
+      setLoading(true);
+    } catch (error) {
+      console.log("error", error);
+      setLoading(true);
+    }
   };
 
-  const fetchInnerProduct = () => {
-    const { id } = useParams();
-    useEffect(() => {
-      setLoading(false);
-      async function fetchProduct() {
-        try {
-          const response = await fetch(`https://dummyjson.com/products/${id}`);
-          const data = await response.json();
-          setProductData(data);
-          console.log(data);
-          setLoading(true);
-        } catch (error) {
-          console.log("error", error);
-          setLoading(true);
-        }
-      }
-      fetchProduct();
-    }, [id]);
-  };
+  const fetchSearchedData = async (id) => {
+    setLoading(false);
 
-  const fetchSearchedData = () => {
-    const [searchParams] = useSearchParams();
-    const id = searchParams.get("q");
-    useEffect(() => {
-      setLoading(false);
-      async function searchData() {
-        try {
-          const response = await fetch(
-            `https://dummyjson.com/products/search?q=${id}`
-          );
-          const searchData = await response.json();
-          const products = searchData.products;
-          setDataFetch(products);
-          console.log(products);
-          setLoading(true);
+    try {
+      const response = await fetch(
+        `https://dummyjson.com/products/search?q=${id}`
+      );
+      const searchData = await response.json();
+      const products = searchData.products;
+      setDataFetch(products);
+      console.log(products);
+      setLoading(true);
 
-          console.log(searchData.products);
-        } catch (error) {
-          console.log("error", error);
-          setLoading(true);
-        }
-      }
-      searchData();
-    }, [id]);
+      console.log(searchData.products);
+    } catch (error) {
+      console.log("error", error);
+      setLoading(true);
+    }
   };
   return (
     <AddCartTheme.Provider
       value={{
         fetchProducts,
-        fetchAllProducts,
+        allProducts,
         handleCart,
         fetchInnerProduct,
         fetchSearchedData,

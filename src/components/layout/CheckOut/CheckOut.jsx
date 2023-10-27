@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import { useProducts } from "../../../Contexts/AddCartContext";
 
 function CheckOut() {
   const { data, itemsSum, calculateSum, handleDeleteCartItem } = useProducts();
 
-  calculateSum();
+  useEffect(() => {
+    calculateSum();
+  }, [data]);
 
   return (
     <div

@@ -4,9 +4,12 @@ import { useProducts } from "../../Contexts/AddCartContext";
 import Products from "./Products";
 
 function ProductsFetching() {
+  const { id } = useParams();
   const { fetchProducts } = useProducts();
 
-  fetchProducts();
+  useEffect(() => {
+    fetchProducts(id);
+  }, [id]);
 
   return (
     <div>

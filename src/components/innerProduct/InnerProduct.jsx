@@ -11,7 +11,11 @@ function InnerProduct() {
   const { productData, fetchInnerProduct, loading, handleAddInCart } =
     useProducts();
 
-  fetchInnerProduct();
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetchInnerProduct(id);
+  }, [id]);
 
   const imageData = productData.images
     ? [
